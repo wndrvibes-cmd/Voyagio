@@ -43,20 +43,27 @@ margin-bottom: 15px;
 
 /* BUTTON */
 .btn-main {
-padding: 15px 30px;
-border-radius: 40px;
+padding: 16px 30px;
+border-radius: 50px;
 background: linear-gradient(135deg,#ff7a18,#ff3cac);
 border: none;
 color: white;
 font-weight: bold;
-margin-top: 20px;
+font-size: 16px;
+margin-top: 25px;
 cursor: pointer;
 transition: 0.3s;
+box-shadow: 0 0 20px rgba(255,122,24,0.4);
+animation: pulse 2s infinite;
 }
 
 .btn-main:hover {
 transform: scale(1.08);
-box-shadow: 0 0 20px rgba(255,122,24,0.5);
+box-shadow: 0 0 30px rgba(255,122,24,0.8);
+}
+
+.btn-main:active {
+transform: scale(0.95);
 }
 
 /* SECTION */
