@@ -132,6 +132,16 @@ z-index: 0;
 .card * {
 position: relative;
 z-index: 2;
+} 
+.card::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 140px;
+background: linear-gradient(to bottom, rgba(0,0,0,0.2), #111);
+z-index: 1;
 }
 .card:hover {
 transform: translateY(-6px) scale(1.02);
