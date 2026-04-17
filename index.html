@@ -196,29 +196,63 @@ color: #777;
 <div class="section" id="pricing">
 <h2>Choisis ton expérience ✨</h2>
 
+<p style="color:#aaa; max-width:400px; margin:auto;">
+Ton voyage personnalisé en quelques minutes, adapté à ton budget et tes envies.
+</p>
+
 <div class="pricing">
 
 <div class="card" onclick="selectPlan('BASIC', this)">
 <h3>BASIC</h3>
 <p>Idée rapide</p>
 <span>9€</span>
+
+<ul>
+<li>✔️ Destination recommandée</li>
+<li>✔️ Budget estimé</li>
+<li>✔️ 2-3 activités</li>
+</ul>
+
 </div>
 
-<div class="card active" onclick="selectPlan('PREMIUM', this)">
+<div class="card active popular" onclick="selectPlan('PREMIUM', this)">
+<div class="badge">🔥 POPULAIRE</div>
+
 <h3>PREMIUM 🔥</h3>
-<p>Voyage complet</p>
+<p>Voyage optimisé</p>
 <span>19€</span>
+
+<ul>
+<li>✔️ Itinéraire jour par jour</li>
+<li>✔️ Hôtels recommandés</li>
+<li>✔️ Activités détaillées</li>
+<li>✔️ Budget précis</li>
+</ul>
+
 </div>
 
-<div class="card" onclick="selectPlan('VIP', this)">
+<div class="card vip" onclick="selectPlan('VIP', this)">
 <h3>VIP 💎</h3>
-<p>Expérience ultime</p>
+<p>Expérience complète</p>
 <span>29€</span>
+
+<ul>
+<li>✔️ Planning détaillé</li>
+<li>✔️ Adresses exactes</li>
+<li>✔️ Restaurants & spots cachés</li>
+<li>✔️ Conseils exclusifs</li>
+<li>✔️ PDF premium</li>
+</ul>
+
 </div>
 
 </div>
 
 <button id="payBtn" class="btn-main">Payer 19€ 🔥</button>
+
+<p style="color:#aaa;margin-top:15px;">
+✔ Accès immédiat • 🔒 Paiement sécurisé • ❌ Aucun abonnement
+</p>
 
 </div>
 
