@@ -27,18 +27,27 @@ p { color: #ccc; }
 
 /* HERO */
 .hero {
-padding: 80px 20px;
-background: linear-gradient(to bottom, #0a0a0a, #111);
+padding: 100px 20px;
+background: 
+linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+url("https://images.pexels.com/photos/9394269/pexels-photo-9394269.jpeg");
+background-size: cover;
+background-position: center;
 }
-
+.hero {
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
 .hero-content {
 max-width: 500px;
 margin: auto;
 }
 
 .logo {
-width: 120px;
-margin-bottom: 15px;
+width: 180px;
+margin-bottom: 20px;
 }
 
 /* BUTTON */
