@@ -3,7 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voyagio ✈️</title>
+
+<title>Voyagio ✈️ - Voyage personnalisé</title>
+
+<meta name="description" content="Crée ton voyage parfait en 2 minutes avec Voyagio. Plans personnalisés selon ton budget et ton style.">
+<meta name="keywords" content="voyage personnalisé, itinéraire voyage, vacances, Bali, Maldives, voyage luxe">
+<meta name="author" content="Voyagio">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -14,27 +19,42 @@ margin: 0;
 font-family: 'Poppins', sans-serif;
 background: #0a0a0a;
 color: white;
+}
+
+<!-- HERO -->
+<div class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+        <img src="https://www.image2url.com/r2/default/images/1776393053480-0cba0804-7b75-41ab-ae09-cc32e5ea10dc.png" class="logo">
+
+        <h1>Ton voyage commence ici</h1>
+
+        <p class="subtitle">Crée un voyage unique en quelques secondes</p>
+
+        <div class="live-counter">
+             <span id="clients">127</span> voyageurs aujourd’hui
+        </div>
+
+        <a href="#pricing">
+            <button class="btn-main">Créer mon voyage </button>
+        </a>
+
+    </div>
+
+</div>
+  
+  .hero-content {
+position: relative;
 text-align: center;
 }
 
-/* HERO */
-.hero {
-padding: 80px 20px;
-}
 
 .logo {
 width: 120px;
-margin-bottom: 20px;
-}
-
-h1 {
-font-size: 40px;
-margin: 10px 0;
-}
-
-.subtitle {
-color: #aaa;
-margin-bottom: 20px;
+margin-bottom: 15px;
 }
 
 .btn-main {
@@ -44,49 +64,81 @@ background: linear-gradient(135deg,#ff7a18,#ff3cac);
 border: none;
 color: white;
 font-weight: bold;
+margin-top: 20px;
 cursor: pointer;
-font-size: 16px;
+transition: 0.3s;
+}
+
+.btn-main:hover {
+transform: scale(1.05);
+}
+
+/* SECTION */
+.section {
+padding: 50px 20px;
+text-align: center;
 }
 
 /* DESTINATIONS */
 .grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
-gap: 10px;
-padding: 20px;
+gap: 15px;
+margin-top: 25px;
 }
 
 .card-img {
+position: relative;
 border-radius: 15px;
 overflow: hidden;
 }
 
 .card-img img {
 width: 100%;
-height: 120px;
+height: 150px;
 object-fit: cover;
 }
 
-/* SECTION */
-.section {
-padding: 40px 20px;
+.label {
+position: absolute;
+bottom: 10px;
+left: 10px;
+background: rgba(0,0,0,0.6);
+padding: 6px 12px;
+border-radius: 10px;
 }
 
 /* PRICING */
+.pricing {
+display: flex;
+flex-direction: column;
+gap: 20px;
+margin-top: 30px;
+}
+
 .card {
 background: #111;
-padding: 20px;
-margin: 10px;
-border-radius: 15px;
+padding: 25px;
+border-radius: 20px;
 cursor: pointer;
+transition: 0.3s;
+border: 2px solid transparent;
+}
+
+.card:hover {
+transform: scale(1.02);
 }
 
 .card.active {
-border: 2px solid orange;
+border: 2px solid #ff7a18;
+box-shadow: 0 0 25px rgba(255,122,24,0.5);
 }
 
 .card span {
-color: orange;
+display: block;
+margin-top: 10px;
+font-weight: bold;
+color: #ff7a18;
 font-size: 20px;
 }
 
@@ -94,16 +146,23 @@ font-size: 20px;
 form {
 display: flex;
 flex-direction: column;
-gap: 10px;
-padding: 20px;
+gap: 12px;
+margin-top: 30px;
 }
 
 input, select, textarea {
-padding: 12px;
-border-radius: 10px;
+padding: 14px;
+border-radius: 12px;
 border: none;
 background: #161616;
 color: white;
+}
+
+/* FOOTER */
+footer {
+text-align: center;
+padding: 30px;
+color: #777;
 }
 
 </style>
@@ -111,86 +170,241 @@ color: white;
 
 <body>
 
+<!-- HERO -->
 <div class="hero">
+<div class="overlay"></div>
 
-<h1>Voyagio ✈️</h1>
-<p class="subtitle">Ton voyage commence ici</p>
+<div class="hero-content">
+<img src="https://www.image2url.com/r2/default/images/1776393053480-0cba0804-7b75-41ab-ae09-cc32e5ea10dc.png" class="logo">
 
+<h1>Ton voyage commence ici</h1>
+<p>Crée un voyage unique en quelques secondes</p>
+
+<p style="margin-top:15px;color:#ccc;">
+✨ +200 voyageurs satisfaits • 🔒 Paiement sécurisé • ⚡ Instantané
+</p>
+
+<a href="#pricing">
 <button class="btn-main">Créer mon voyage 🚀</button>
-
+</a>
+</div>
 </div>
 
 <!-- DESTINATIONS -->
 <div class="section">
-<h2>Destinations 🌍</h2>
+<h2>Destinations de rêve 🌍</h2>
 
 <div class="grid">
 
 <div class="card-img">
 <img src="https://images.pexels.com/photos/35057424/pexels-photo-35057424.jpeg">
+<div class="label">Bali</div>
 </div>
 
 <div class="card-img">
 <img src="https://images.pexels.com/photos/9394269/pexels-photo-9394269.jpeg">
+<div class="label">Maldives</div>
 </div>
 
 <div class="card-img">
 <img src="https://images.pexels.com/photos/5247279/pexels-photo-5247279.jpeg">
+<div class="label">Thaïlande</div>
+</div>
+
+<div class="card-img">
+<img src="https://images.pexels.com/photos/15682449/pexels-photo-15682449.jpeg">
+<div class="label">Dubai</div>
 </div>
 
 <div class="card-img">
 <img src="https://images.pexels.com/photos/161815/santorini-oia-greece-water-161815.jpeg">
+<div class="label">Grèce</div>
+</div>
+
+<div class="card-img">
+<img src="https://images.pexels.com/photos/21563800/pexels-photo-21563800.jpeg">
+<div class="label">Maroc</div>
 </div>
 
 </div>
+
+<!-- POURQUOI -->
+<div class="section">
+<h2>Pourquoi Voyagio ?</h2>
+<p>✨ Voyage 100% personnalisé</p>
+<p>💰 Adapté à ton budget</p>
+<p>⚡ Résultat instantané</p>
+<p>🔒 Paiement sécurisé avec Stripe</p>
+</div>
+<div style="text-align:center; margin-top:30px;">
+    <a href="#pricing">
+        <button class="btn-main">Voir les offres 🔥</button>
+    </a>
+</div>
+<!-- COMMENT CA MARCHE -->
+<div class="section">
+<h2>Comment ça marche ? ⚙️</h2>
+<p>1️⃣ Choisis ton pack</p>
+<p>2️⃣ Remplis ton formulaire</p>
+<p>3️⃣ Reçois ton voyage personnalisé</p>
+<p style="color:#aaa;">Simple, rapide, efficace 🚀</p>
 </div>
 
 <!-- PRICING -->
-<div class="section">
-<h2>Choisis ton offre ✨</h2>
+<div class="section" id="pricing">
+<h2>Choisis ton expérience ✨</h2>
+
+<div class="pricing">
 
 <div class="card" onclick="selectPlan('BASIC', this)">
 <h3>BASIC</h3>
+<p>Idée rapide</p>
 <span>9€</span>
 </div>
 
 <div class="card" onclick="selectPlan('PREMIUM', this)">
 <h3>PREMIUM 🔥</h3>
+<p>Ton voyage parfait</p>
 <span>19€</span>
 </div>
 
 <div class="card" onclick="selectPlan('VIP', this)">
 <h3>VIP 💎</h3>
+<p>Sur-mesure</p>
 <span>29€</span>
 </div>
 
-<button id="payBtn" class="btn-main">Choisir</button>
+</div>
+
+<button id="payBtn" class="btn-main">Choisis une offre</button>
+
+<p style="color:#aaa;margin-top:15px;">
+✔ Accès immédiat • 🔒 Paiement sécurisé • ❌ Aucun abonnement
+</p>
 
 </div>
 
 <!-- FORM -->
 <div class="section">
 <h2>Créer ton voyage ✈️</h2>
-
 <form id="travelForm">
 
-<input type="text" name="name" placeholder="Ton nom" required>
-<input type="email" name="email" placeholder="Ton email" required>
+<label>👤 Ton nom</label>
+<input type="text" name="name" placeholder="Ex: Lucas" required>
+
+<label>📧 Ton email</label>
+<input type="email" name="email" placeholder="exemple@gmail.com" required>
+
+<label>🌍 Destination</label>
 
 <select name="destination">
+<option value="">Choisis une destination</option>
+
+<optgroup label="🏝️ Destinations paradisiaques">
 <option>Bali</option>
 <option>Maldives</option>
+<option>Seychelles</option>
+<option>Île Maurice</option>
+<option>Zanzibar</option>
+<option>Polynésie française</option>
+<option>Bahamas</option>
+<option>Hawaï</option>
+</optgroup>
+
+<optgroup label="🏙️ Villes & luxe">
 <option>Dubaï</option>
+<option>Paris</option>
+<option>New York</option>
+<option>Tokyo</option>
+<option>Singapour</option>
+<option>Los Angeles</option>
+<option>Monaco</option>
+</optgroup>
+
+<optgroup label="🏜️ Aventure & désert">
+<option>Maroc</option>
+<option>Jordanie (Petra)</option>
+<option>Égypte</option>
+<option>Namibie</option>
+<option>Dubaï désert</option>
+</optgroup>
+
+<optgroup label="🏔️ Montagnes & nature">
+<option>Suisse</option>
+<option>Canada</option>
+<option>Islande</option>
+<option>Norvège</option>
+<option>Alpes françaises</option>
+<option>Népal</option>
+</optgroup>
+
+<optgroup label="🌴 Asie & exotique">
 <option>Thaïlande</option>
+<option>Vietnam</option>
+<option>Indonésie</option>
+<option>Philippines</option>
+<option>Sri Lanka</option>
+</optgroup>
+
+<optgroup label="🏛️ Europe">
+<option>Grèce</option>
+<option>Italie</option>
+<option>Espagne</option>
+<option>Portugal</option>
+<option>Croatie</option>
+<option>Turquie</option>
+</optgroup>
+
+<optgroup label="🌎 Amérique">
+<option>Mexique</option>
+<option>Brésil</option>
+<option>Pérou</option>
+<option>Colombie</option>
+<option>Californie</option>
+</optgroup>
+
+</select>
+  <p style="color:#aaa; font-size:13px;">
+💡 Tu ne sais pas ? Choisis une destination et on t’inspire 🔥
+</p>
+<label>💰 Budget (€)</label>
+<input type="number" name="budget" placeholder="Ex: 1500€">
+
+<label>👥 Nombre de personnes</label>
+<input type="number" name="people" placeholder="Ex: 2">
+
+<label>📅 Durée</label>
+<select name="duration">
+<option>3 jours (weekend)</option>
+<option>5 jours</option>
+<option>7 jours</option>
+<option>10 jours+</option>
 </select>
 
-<textarea name="details" placeholder="Décris ton voyage"></textarea>
+<label>✨ Type de voyage</label>
+<select name="style">
+<option>Détente (plage, chill)</option>
+<option>Aventure (randonnée, activités)</option>
+<option>Luxe (hôtel 5⭐)</option>
+<option>Road trip</option>
+<option>Romantique ❤️</option>
+</select>
 
-<button type="submit" class="btn-main">Envoyer 🚀</button>
+<label>📝 Décris ton voyage idéal</label>
+<textarea name="details" placeholder="Ex: plage + hôtel luxe + activités + coucher de soleil..."></textarea>
+
+<button type="submit" class="btn-main">Générer mon voyage ✈️</button>
 
 </form>
 
 </div>
+
+
+</div>
+
+<footer>
+© Voyagio ✈️
+</footer>
 
 <script>
 
@@ -204,24 +418,42 @@ element.classList.add('active');
 
 const btn = document.getElementById("payBtn");
 
-if(plan === "BASIC") btn.innerText = "Payer 9€";
-if(plan === "PREMIUM") btn.innerText = "Payer 19€";
-if(plan === "VIP") btn.innerText = "Payer 29€";
+if(plan === "BASIC") btn.innerText = "Payer 9€ 🚀";
+if(plan === "PREMIUM") btn.innerText = "Payer 19€ 🔥";
+if(plan === "VIP") btn.innerText = "Payer 29€ 💎";
+
+btn.scrollIntoView({ behavior: "smooth" });
 }
 
-document.getElementById("payBtn").onclick = function(){
+document.getElementById("payBtn").addEventListener("click", function(){
 
 if(!selectedPlan){
-alert("Choisis une offre");
+alert("⚠️ Choisis une offre avant de payer");
 return;
 }
 
-alert("Paiement simulé 💸");
+if(selectedPlan === "BASIC"){
+window.location.href = "https://buy.stripe.com/dRm00icyM3yD6iW6jx9bO02";
 }
+if(selectedPlan === "PREMIUM"){
+window.location.href = "https://buy.stripe.com/cNi9ASeGUglpePs7nB9bO03";
+}
+if(selectedPlan === "VIP"){
+window.location.href = "https://buy.stripe.com/bJedR8eGUfhl0YC8rF9bO04";
+}
+
+});
 
 document.getElementById("travelForm").addEventListener("submit", function(e){
 e.preventDefault();
-alert("Demande envoyée ✈️");
+
+fetch("https://formspree.io/f/mgoraqeo", {
+method: "POST",
+body: new FormData(this),
+headers: { 'Accept': 'application/json' }
+});
+
+alert("✅ Demande envoyée ! On prépare ton voyage 🚀");
 this.reset();
 });
 
