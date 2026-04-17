@@ -490,19 +490,36 @@ Ton voyage personnalisé en quelques minutes, adapté à ton budget et tes envie
 let selectedPlan = "PREMIUM";
 
 function selectPlan(plan, el){
-selectedPlan = plan;
 
-document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-el.classList.add('active');
+  ...
 
-let btn = document.getElementById("payBtn");
-
-if(plan === "BASIC") btn.innerText = "✨ Créer mon idée de voyage";
-if(plan === "PREMIUM") btn.innerText = "🔥 Créer mon voyage parfait";
-if(plan === "VIP") btn.innerText = "💎 Créer mon voyage sur-mesure";
 }
 
-</script>
+/* 👉 ICI TU AJOUTES ÇA 👇 */
+
+document.getElementById("payBtn").addEventListener("click", function () {
+
+  if (selectedPlan === "BASIC") {
+
+    window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
+
+  }
+
+  if (selectedPlan === "PREMIUM") {
+
+    window.location.href = "https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06";
+
+  }
+
+  if (selectedPlan === "VIP") {
+
+    window.location.href = "https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07";
+
+  }
+
+});
+
+</script
 
 </body>
 </html>
