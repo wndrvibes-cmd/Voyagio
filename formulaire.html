@@ -24,23 +24,22 @@ body {
 /* TITRE */
 h2 {
   margin-bottom: 10px;
-  font-size: 28px;
 }
 
 .subtitle {
   color: #aaa;
   font-size: 14px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-/* BADGE */
-.badge {
+/* BADGE PLAN */
+.plan-badge {
   display: inline-block;
-  background: linear-gradient(90deg,#ff7a18,#ff3cac);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 12px;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 13px;
   margin-bottom: 15px;
+  font-weight: bold;
 }
 
 /* FORM */
@@ -48,14 +47,9 @@ form {
   background: rgba(0,0,0,0.75);
   padding: 25px;
   border-radius: 25px;
-
   backdrop-filter: blur(15px);
-
   border: 1px solid rgba(255,255,255,0.05);
-
-  box-shadow:
-    0 0 20px rgba(255,60,172,0.15),
-    0 0 60px rgba(0,0,0,0.8);
+  transition: 0.3s;
 }
 
 /* INPUTS */
@@ -63,23 +57,18 @@ input, select, textarea {
   width: 100%;
   padding: 16px;
   margin-bottom: 15px;
-
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,0.05);
-
   background: rgba(255,255,255,0.03);
   color: white;
-
   font-size: 14px;
-
   transition: 0.3s;
 }
 
-/* FOCUS (effet wow) */
+/* FOCUS */
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border: 1px solid #ff3cac;
-  box-shadow: 0 0 15px rgba(255,60,172,0.4);
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
 }
 
 /* LABEL */
@@ -101,13 +90,6 @@ label {
   font-size: 16px;
   color: white;
   cursor: pointer;
-
-  background: linear-gradient(135deg,#ff7a18,#ff3cac);
-
-  box-shadow:
-    0 0 20px rgba(255,122,24,0.6),
-    0 0 40px rgba(255,60,172,0.4);
-
   transition: 0.3s;
 }
 
@@ -115,7 +97,7 @@ label {
   transform: scale(1.05);
 }
 
-/* TEXTE SÉCURITÉ */
+/* TEXTE */
 .security {
   font-size: 12px;
   color: #aaa;
@@ -126,19 +108,20 @@ label {
 
 <body>
 
-<div id="formSection">
-
 <div class="section">
 
-<div class="badge">🔥 Accès client premium</div>
+<div id="planBadge" class="plan-badge"></div>
 
 <h2>✨ Ton voyage commence ici</h2>
 
 <p class="subtitle">
-Réponds en 30 secondes et reçois ton itinéraire sur-mesure
+Réponds en 30 secondes et reçois ton itinéraire personnalisé
 </p>
 
 <form id="travelForm">
+
+<!-- PLAN CACHÉ -->
+<input type="hidden" name="plan" id="planInput">
 
 <input type="text" name="name" placeholder="Ton nom" required>
 <input type="email" name="email" placeholder="Ton email" required>
@@ -169,50 +152,10 @@ Réponds en 30 secondes et reçois ton itinéraire sur-mesure
 <option>Monaco</option>
 </optgroup>
 
-<optgroup label="🏜️ Aventure">
-<option>Maroc</option>
-<option>Jordanie (Petra)</option>
-<option>Égypte</option>
-<option>Namibie</option>
-</optgroup>
-
-<optgroup label="🏔️ Nature">
-<option>Suisse</option>
-<option>Canada</option>
-<option>Islande</option>
-<option>Norvège</option>
-<option>Népal</option>
-</optgroup>
-
-<optgroup label="🌴 Asie">
-<option>Thaïlande</option>
-<option>Vietnam</option>
-<option>Indonésie</option>
-<option>Philippines</option>
-<option>Sri Lanka</option>
-</optgroup>
-
-<optgroup label="🏛️ Europe">
-<option>Grèce</option>
-<option>Italie</option>
-<option>Espagne</option>
-<option>Portugal</option>
-<option>Croatie</option>
-<option>Turquie</option>
-</optgroup>
-
-<optgroup label="🌎 Amérique">
-<option>Mexique</option>
-<option>Brésil</option>
-<option>Pérou</option>
-<option>Colombie</option>
-<option>Californie</option>
-</optgroup>
-
 </select>
 
 <p style="color:#ff7a18; font-size:13px;">
-🔥 Les destinations tendances : Bali, Maldives, Dubaï
+🔥 Destinations tendances : Bali, Maldives, Dubaï
 </p>
 
 <input type="number" name="budget" placeholder="Budget €">
@@ -227,15 +170,64 @@ Réponds en 30 secondes et reçois ton itinéraire sur-mesure
 <textarea name="details" placeholder="Ton voyage idéal..."></textarea>
 
 <p class="security">
-🔒 Données sécurisées • réponse sous 24h • sans engagement
+🔒 Données sécurisées • réponse rapide • sans engagement
 </p>
 
-<button type="submit" class="btn-main">🚀 Recevoir mon voyage</button>
+<button type="submit" id="submitBtn" class="btn-main">
+🚀 Recevoir mon voyage
+</button>
 
 </form>
 </div>
 
-</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const plan = params.get("plan");
+
+const badge = document.getElementById("planBadge");
+const btn = document.getElementById("submitBtn");
+const form = document.getElementById("travelForm");
+
+document.getElementById("planInput").value = plan;
+
+/* STYLES PAR PLAN */
+if(plan === "basic"){
+  badge.innerText = "🟢 Offre BASIC";
+  badge.style.background = "#00ff88";
+  badge.style.color = "#000";
+
+  btn.style.background = "#00ff88";
+  btn.style.boxShadow = "0 0 20px #00ff88";
+
+  form.style.boxShadow = "0 0 30px rgba(0,255,136,0.3)";
+}
+
+if(plan === "premium"){
+  badge.innerText = "🔥 Offre PREMIUM";
+  badge.style.background = "#ff7a18";
+
+  btn.style.background = "#ff7a18";
+  btn.style.boxShadow = "0 0 20px #ff7a18";
+
+  form.style.boxShadow = "0 0 30px rgba(255,122,24,0.4)";
+}
+
+if(plan === "vip"){
+  badge.innerText = "💎 Offre VIP";
+  badge.style.background = "#ff3cac";
+
+  btn.style.background = "#ff3cac";
+  btn.style.boxShadow = "0 0 20px #ff3cac";
+
+  form.style.boxShadow = "0 0 40px rgba(255,60,172,0.5)";
+}
+
+/* SI PAS DE PLAN */
+if(!plan){
+  badge.innerText = "✨ Offre personnalisée";
+  badge.style.background = "linear-gradient(90deg,#ff7a18,#ff3cac)";
+}
+</script>
 
 </body>
 </html>
