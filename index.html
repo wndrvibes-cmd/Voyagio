@@ -315,6 +315,48 @@ box-shadow: 0 0 40px rgba(255,60,172,0.5);
     0 0 20px #ff3cac,
     0 0 40px #ff3cac,
     0 0 80px rgba(255,60,172,0.9);
+} 
+.why-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 15px;
+margin-top: 20px;
+}
+
+.why-card {
+background: rgba(0,0,0,0.6);
+padding: 20px;
+border-radius: 20px;
+border: 1px solid rgba(255,255,255,0.05);
+box-shadow: 0 0 20px rgba(255,122,24,0.15);
+transition: 0.3s;
+}
+
+.why-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 0 30px rgba(255,122,24,0.4);
+}
+
+.compare {
+display: flex;
+flex-direction: column;
+gap: 20px;
+margin-top: 20px;
+}
+
+.compare-box {
+padding: 20px;
+border-radius: 20px;
+background: rgba(0,0,0,0.6);
+}
+
+.compare-box.bad {
+border: 1px solid rgba(255,0,0,0.3);
+}
+
+.compare-box.good {
+border: 1px solid rgba(0,255,136,0.4);
+box-shadow: 0 0 20px rgba(0,255,136,0.3);
 }
 </style>
 </head>
