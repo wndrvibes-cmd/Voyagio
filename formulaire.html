@@ -98,7 +98,7 @@ input, select, textarea {
   <div id="progressBar" style="height:100%;width:33%;background:linear-gradient(90deg,#ff7a18,#ff3cac);"></div>
 </div>
 
-<form id="travelForm" action="https://hooks.zapier.com/hooks/catch/27279299/uj5n35z/" method="POST">
+<form id="travelForm">
 
 <input type="hidden" name="plan" id="planInput">
 
@@ -198,16 +198,13 @@ let step = 0;
 const steps = document.querySelectorAll(".step");
 const progress = document.getElementById("progressBar");
 
-/* ---------- AFFICHAGE STEP ---------- */
 function showStep(i){
   steps.forEach(s => s.classList.remove("active"));
   steps[i].classList.add("active");
   progress.style.width = ((i+1)/steps.length)*100 + "%";
 }
 
-/* ---------- NEXT STEP + VALIDATION ---------- */
 function nextStep(){
-
   const currentStep = steps[step];
   const inputs = currentStep.querySelectorAll("input, select, textarea");
 
@@ -224,10 +221,9 @@ function nextStep(){
   }
 }
 
-/* INIT */
 showStep(0);
 
-/* ---------- PLAN AUTO ---------- */
+/* PLAN */
 const params = new URLSearchParams(window.location.search);
 const selectedPlan = params.get("plan") || "PREMIUM";
 
@@ -250,21 +246,32 @@ if(selectedPlan === "VIP"){
   badge.style.background = "#ff3cac";
 }
 
-/* ---------- ENVOI ZAPIER (SANS REDIRECTION) ---------- */
+/* ENVOI ZAPIER */
 document.getElementById("travelForm").addEventListener("submit", function(e){
 
-  e.preventDefault(); // 🚨 empêche la page JSON
+  e.preventDefault();
 
-  const form = e.target;
-  const data = new FormData(form);
+  const data = {
+    plan: document.getElementById("planInput").value,
+    name: document.querySelector('[name="name"]').value,
+    email: document.querySelector('[name="email"]').value,
+    destination: document.querySelector('[name="destination"]').value,
+    budget: document.querySelector('[name="budget"]').value,
+    people: document.querySelector('[name="people"]').value,
+    duration: document.querySelector('[name="duration"]').value,
+    style: document.querySelector('[name="style"]').value,
+    details: document.querySelector('[name="details"]').value
+  };
 
-  fetch(form.action, {
+  fetch("https://hooks.zapier.com/hooks/catch/27279299/uj5n35z/", {
     method: "POST",
-    body: data
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
   });
 
-  // UI loading
-  form.style.display = "none";
+  document.getElementById("travelForm").style.display = "none";
   document.getElementById("loadingScreen").style.display = "block";
 
 });
