@@ -210,12 +210,36 @@ function nextStep(){
 
 showStep(0);
 
+showStep(0);
+
+/* PLAN (IMPORTANT 🔥) */
+const params = new URLSearchParams(window.location.search);
+const selectedPlan = params.get("plan") || "PREMIUM";
+
+document.getElementById("planInput").value = selectedPlan;
+
+const badge = document.getElementById("planBadge");
+
+if(selectedPlan === "BASIC"){
+  badge.innerHTML = "🟢 BASIC";
+  badge.style.background = "#00ff88";
+}
+
+if(selectedPlan === "PREMIUM"){
+  badge.innerHTML = "🔥 PREMIUM";
+  badge.style.background = "#ff7a18";
+}
+
+if(selectedPlan === "VIP"){
+  badge.innerHTML = "💎 VIP";
+  badge.style.background = "#ff3cac";
+}
+
 /* IA + ENVOI */
 document.getElementById("travelForm").addEventListener("submit", function(){
   document.querySelector("form").style.display = "none";
   document.getElementById("loadingScreen").style.display = "block";
 });
-</script>
 
 </body>
 </html>
