@@ -1,7 +1,65 @@
 <!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créer ton voyage</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(180deg,#0f172a,#1e293b);
+  color: white;
+}
+
+.section {
+  max-width: 500px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+form {
+  background: rgba(0,0,0,0.8);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(255,60,172,0.2);
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: white;
+}
+
+.btn-main {
+  width: 100%;
+  padding: 16px;
+  border-radius: 50px;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg,#ff7a18,#ff3cac);
+  box-shadow: 0 0 20px rgba(255,60,172,0.5);
+}
+
+h2 {
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
 <div id="formSection">
 
-  <div class="section">
+<div class="section">
 <h2>Créer ton voyage ✈️</h2>
 
 <form id="travelForm">
@@ -80,7 +138,6 @@
 <p style="color:#ff7a18; font-size:13px;">
 🔥 Les destinations tendances : Bali, Maldives, Dubaï
 </p>
-  
 
 <input type="number" name="budget" placeholder="Budget €">
 <input type="number" name="people" placeholder="Personnes">
@@ -97,4 +154,8 @@
 
 </form>
 </div>
+
 </div>
+
+</body>
+</html>
