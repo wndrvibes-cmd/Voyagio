@@ -166,6 +166,36 @@ body {
 .section {
   flex: 1;
 } 
+.footer {
+  margin-top: 60px;
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.footer::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.6); /* 👈 fond sombre */
+  backdrop-filter: blur(6px);  /* 👈 effet glass */
+  z-index:0;
+  border-radius: 20px;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  color: #ddd;
+  font-size: 13px;
+}
+
+.footer p {
+  margin: 6px 0;
+} 
+.footer::before {
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
 </style>
 </head>
 
@@ -283,9 +313,11 @@ body {
 <div id="loadingScreen">...</div>
 
 <!-- 👇 AJOUTE ICI -->
-<footer class="footer">
-  <p>© 2026 Voyagio — Tous droits réservés</p>
-  <p>Contact : contact@voyagio.com</p>
+<<footer class="footer">
+  <div class="footer-content">
+    <p>© 2026 Voyagio — Tous droits réservés</p>
+    <p>Contact : hello.voyagio@gmail.com</p>
+  </div>
 </footer>
 
 <script>
