@@ -118,10 +118,17 @@ label {
 Réponds en 30 secondes et reçois ton itinéraire personnalisé
 </p>
 
+<!-- BARRE PROGRESSION -->
+<div style="height:6px;background:#222;border-radius:10px;margin-bottom:20px;">
+  <div id="progressBar" style="height:100%;width:33%;background:linear-gradient(90deg,#ff7a18,#ff3cac);border-radius:10px;"></div>
+</div>
+
 <form id="travelForm">
 
-<!-- PLAN CACHÉ -->
 <input type="hidden" name="plan" id="planInput">
+
+<!-- STEP 1 -->
+<div class="step active">
 
 <input type="text" name="name" placeholder="Ton nom" required>
 <input type="email" name="email" placeholder="Ton email" required>
@@ -158,6 +165,15 @@ Réponds en 30 secondes et reçois ton itinéraire personnalisé
 🔥 Destinations tendances : Bali, Maldives, Dubaï
 </p>
 
+<button type="button" onclick="nextStep()" class="btn-main">
+Continuer →
+</button>
+
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+
 <input type="number" name="budget" placeholder="Budget €">
 <input type="number" name="people" placeholder="Personnes">
 
@@ -167,7 +183,60 @@ Réponds en 30 secondes et reçois ton itinéraire personnalisé
 <option>10 jours</option>
 </select>
 
+<select name="style">
+<option>Type de voyage</option>
+<option>Chill & détente</option>
+<option>Aventure</option>
+<option>Luxe</option>
+<option>Mix</option>
+</select>
+
+<select name="pace">
+<option>Rythme</option>
+<option>Relax</option>
+<option>Équilibré</option>
+<option>Intense</option>
+</select>
+
+<button type="button" onclick="nextStep()" class="btn-main">
+Continuer →
+</button>
+
+</div>
+
+<!-- STEP 3 -->
+<div class="step" id="premiumStep">
+
 <textarea name="details" placeholder="Ton voyage idéal..."></textarea>
+
+<!-- PREMIUM -->
+<div id="premiumQuestions" style="display:none;">
+
+<select name="hotel">
+<option>Type d’hébergement</option>
+<option>Économique</option>
+<option>Confort</option>
+<option>Luxe</option>
+</select>
+
+<textarea name="activities" placeholder="Activités souhaitées..."></textarea>
+
+</div>
+
+<!-- VIP -->
+<div id="vipQuestions" style="display:none;">
+
+<select name="food">
+<option>Restaurants & gastronomie ?</option>
+<option>Oui</option>
+<option>Non</option>
+</select>
+
+<textarea name="luxury" placeholder="Expériences exclusives (yacht, spa...)"></textarea>
+
+<textarea name="constraints" placeholder="Contraintes / préférences..."></textarea>
+
+</div>
 
 <p class="security">
 🔒 Données sécurisées • réponse rapide • sans engagement
@@ -177,11 +246,37 @@ Réponds en 30 secondes et reçois ton itinéraire personnalisé
 🚀 Recevoir mon voyage
 </button>
 
+</div>
+
 </form>
 </div>
 
+<style>
+.step { display:none; }
+.step.active { display:block; }
+</style>
 
 <script>
+let step = 0;
+const steps = document.querySelectorAll(".step");
+const progress = document.getElementById("progressBar");
+
+function showStep(i){
+  steps.forEach(s => s.classList.remove("active"));
+  steps[i].classList.add("active");
+  progress.style.width = ((i+1)/steps.length)*100 + "%";
+}
+
+function nextStep(){
+  if(step < steps.length-1){
+    step++;
+    showStep(step);
+  }
+}
+
+showStep(0);
+
+/* PLAN */
 const params = new URLSearchParams(window.location.search);
 const plan = params.get("plan");
 
@@ -194,46 +289,31 @@ if(inputPlan){
   inputPlan.value = plan;
 }
 
-/* RESET */
-badge.innerText = "";
-badge.style = "";
-
-/* STYLES PAR PLAN */
+/* STYLES + LOGIQUE */
 if(plan === "basic"){
   badge.innerText = "🟢 Offre BASIC";
   badge.style.background = "#00ff88";
-  badge.style.color = "#000";
 
-  btn.style.background = "#00ff88";
-  btn.style.boxShadow = "0 0 20px #00ff88";
-
-  form.style.boxShadow = "0 0 30px rgba(0,255,136,0.3)";
+  document.getElementById("premiumStep").style.display = "none";
 }
 
 else if(plan === "premium"){
   badge.innerText = "🔥 Offre PREMIUM";
   badge.style.background = "#ff7a18";
 
-  btn.style.background = "#ff7a18";
-  btn.style.boxShadow = "0 0 20px #ff7a18";
-
-  form.style.boxShadow = "0 0 30px rgba(255,122,24,0.4)";
+  document.getElementById("premiumQuestions").style.display = "block";
 }
 
 else if(plan === "vip"){
   badge.innerText = "💎 Offre VIP";
   badge.style.background = "#ff3cac";
 
-  btn.style.background = "#ff3cac";
-  btn.style.boxShadow = "0 0 20px #ff3cac";
-
-  form.style.boxShadow = "0 0 40px rgba(255,60,172,0.5)";
+  document.getElementById("premiumQuestions").style.display = "block";
+  document.getElementById("vipQuestions").style.display = "block";
 }
 
-/* SI PAS DE PLAN */
 else {
   badge.innerText = "✨ Offre personnalisée";
-  badge.style.background = "linear-gradient(90deg,#ff7a18,#ff3cac)";
 }
 </script>
 
