@@ -221,9 +221,10 @@ function nextStep(){
     showStep(step);
   }
 }
+
 showStep(0);
 
-/* PLAN (IMPORTANT 🔥) */
+/* PLAN */
 const params = new URLSearchParams(window.location.search);
 const selectedPlan = params.get("plan") || "PREMIUM";
 
@@ -246,11 +247,12 @@ if(selectedPlan === "VIP"){
   badge.style.background = "#ff3cac";
 }
 
-/* IA + ENVOI */
+/* SUBMIT */
 document.getElementById("travelForm").addEventListener("submit", function(){
   document.querySelector("form").style.display = "none";
   document.getElementById("loadingScreen").style.display = "block";
 });
+</script>
 
 </body>
 </html>
