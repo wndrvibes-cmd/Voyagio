@@ -180,6 +180,7 @@ Réponds en 30 secondes et reçois ton itinéraire personnalisé
 </form>
 </div>
 
+
 <script>
 const params = new URLSearchParams(window.location.search);
 const plan = params.get("plan");
@@ -187,8 +188,15 @@ const plan = params.get("plan");
 const badge = document.getElementById("planBadge");
 const btn = document.getElementById("submitBtn");
 const form = document.getElementById("travelForm");
+const inputPlan = document.getElementById("planInput");
 
-document.getElementById("planInput").value = plan;
+if(inputPlan){
+  inputPlan.value = plan;
+}
+
+/* RESET */
+badge.innerText = "";
+badge.style = "";
 
 /* STYLES PAR PLAN */
 if(plan === "basic"){
@@ -202,7 +210,7 @@ if(plan === "basic"){
   form.style.boxShadow = "0 0 30px rgba(0,255,136,0.3)";
 }
 
-if(plan === "premium"){
+else if(plan === "premium"){
   badge.innerText = "🔥 Offre PREMIUM";
   badge.style.background = "#ff7a18";
 
@@ -212,7 +220,7 @@ if(plan === "premium"){
   form.style.boxShadow = "0 0 30px rgba(255,122,24,0.4)";
 }
 
-if(plan === "vip"){
+else if(plan === "vip"){
   badge.innerText = "💎 Offre VIP";
   badge.style.background = "#ff3cac";
 
@@ -223,7 +231,7 @@ if(plan === "vip"){
 }
 
 /* SI PAS DE PLAN */
-if(!plan){
+else {
   badge.innerText = "✨ Offre personnalisée";
   badge.style.background = "linear-gradient(90deg,#ff7a18,#ff3cac)";
 }
