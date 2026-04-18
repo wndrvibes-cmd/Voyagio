@@ -271,8 +271,38 @@ document.getElementById("travelForm").addEventListener("submit", function(e){
     body: JSON.stringify(data)
   });
 
+  // UI loading
   document.getElementById("travelForm").style.display = "none";
   document.getElementById("loadingScreen").style.display = "block";
+
+  /* ANIMATION TEXTE */
+  const texts = [
+    "Analyse de tes préférences...",
+    "Recherche des meilleures destinations...",
+    "Création de ton itinéraire...",
+    "Optimisation selon ton budget...",
+    "Finalisation de ton voyage..."
+  ];
+
+  let i = 0;
+  const loadingText = document.getElementById("loadingText");
+
+  const interval = setInterval(() => {
+    if(i < texts.length){
+      loadingText.innerHTML = texts[i];
+      i++;
+    }
+  }, 1500);
+
+  /* FIN (fake succès pour l’instant) */
+  setTimeout(() => {
+    clearInterval(interval);
+
+    document.getElementById("loadingScreen").innerHTML = `
+      <h2>🎉 Ton voyage est prêt !</h2>
+      <p>Tu vas recevoir ton itinéraire par email dans quelques instants ✈️</p>
+    `;
+  }, 8000);
 
 });
 </script>
