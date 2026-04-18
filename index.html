@@ -330,7 +330,28 @@ color: #777;
 50% { transform: scale(1.05); }
 100% { transform: scale(1); }
 }
+.result-box {
+background: rgba(0,0,0,0.65);
+padding: 25px;
+border-radius: 20px;
+border: 1px solid rgba(255,255,255,0.08);
 
+box-shadow:
+0 0 20px rgba(255,122,24,0.2);
+
+backdrop-filter: blur(12px);
+text-align: left;
+}
+
+.result-box ul {
+margin-top: 15px;
+padding-left: 20px;
+color: #ccc;
+}
+
+.result-box li {
+margin-bottom: 8px;
+}
 </style>
 </head>
 
@@ -444,13 +465,17 @@ color: #777;
 <!-- RESULTAT -->
 <div class="section">
 
+<div class="result-box">
+
 <h2>Ce que tu obtiens concrètement 💎</h2>
 
-<p style="max-width:400px;margin:auto;">
-Un vrai plan de voyage prêt à partir :
+<p>Un vrai plan de voyage prêt à partir :</p>
+
+<p style="color:#ff7a18;font-weight:bold;margin-top:10px;">
+🔥 Tout est prêt → tu n’as plus qu’à réserver
 </p>
 
-<ul style="text-align:left;max-width:400px;margin:20px auto;color:#ccc;">
+<ul>
 <li>✔️ Itinéraire jour par jour</li>
 <li>✔️ Hôtels recommandés</li>
 <li>✔️ Activités à faire</li>
@@ -458,6 +483,8 @@ Un vrai plan de voyage prêt à partir :
 <li>✔️ Budget détaillé</li>
 <li>✔️ Conseils pratiques</li>
 </ul>
+
+</div>
 
 </div>
 <!-- PRICING -->
