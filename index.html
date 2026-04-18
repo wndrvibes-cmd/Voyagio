@@ -505,36 +505,39 @@ box-shadow: 0 0 40px rgba(255,60,172,0.5);
 
 <script>
 
-let selectedPlan = "PREMIUM";
+document.addEventListener("DOMContentLoaded", function () {
 
-function selectPlan(plan, el) {
+  let selectedPlan = "PREMIUM";
 
-  selectedPlan = plan;
+  window.selectPlan = function(plan, el) {
 
-  document.querySelectorAll('.card').forEach(card => {
-    card.classList.remove('active');
+    selectedPlan = plan;
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.classList.remove('active');
+    });
+
+    el.classList.add('active');
+  }
+
+  document.getElementById("payBtn").addEventListener("click", function () {
+
+    if (selectedPlan === "BASIC") {
+      window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
+    }
+
+    if (selectedPlan === "PREMIUM") {
+      window.location.href = "https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06";
+    }
+
+    if (selectedPlan === "VIP") {
+      window.location.href = "https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07";
+    }
+
   });
-
-  el.classList.add('active');
-}
-
-document.getElementById("payBtn").addEventListener("click", function () {
-
-  if (selectedPlan === "BASIC") {
-    window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
-  }
-
-  if (selectedPlan === "PREMIUM") {
-    window.location.href = "https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06";
-  }
-
-  if (selectedPlan === "VIP") {
-    window.location.href = "https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07";
-  }
 
 });
 
 </script>
-
 </body>
 </html>
