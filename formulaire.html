@@ -13,7 +13,6 @@ body {
   color: white;
 }
 
-/* SECTION */
 .section {
   max-width: 500px;
   margin: auto;
@@ -21,10 +20,7 @@ body {
   text-align: center;
 }
 
-/* TITRE */
-h2 {
-  margin-bottom: 10px;
-}
+h2 { margin-bottom: 10px; }
 
 .subtitle {
   color: #aaa;
@@ -32,7 +28,6 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* BADGE PLAN */
 .plan-badge {
   display: inline-block;
   padding: 8px 18px;
@@ -42,66 +37,44 @@ h2 {
   font-weight: bold;
 }
 
-/* FORM */
 form {
   background: rgba(0,0,0,0.75);
   padding: 25px;
   border-radius: 25px;
   backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: 0.3s;
 }
 
-/* INPUTS */
 input, select, textarea {
   width: 100%;
   padding: 16px;
   margin-bottom: 15px;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.05);
-  background: rgba(255,255,255,0.03);
+  border: none;
+  background: rgba(255,255,255,0.05);
   color: white;
-  font-size: 14px;
-  transition: 0.3s;
 }
 
-/* FOCUS */
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  box-shadow: 0 0 15px rgba(255,255,255,0.2);
-}
-
-/* LABEL */
-label {
-  display: block;
-  text-align: left;
-  margin-bottom: 8px;
-  margin-top: 10px;
-  color: #ddd;
-}
-
-/* BUTTON */
 .btn-main {
   width: 100%;
   padding: 18px;
   border-radius: 50px;
   border: none;
   font-weight: bold;
-  font-size: 16px;
+  background: linear-gradient(135deg,#ff7a18,#ff3cac);
   color: white;
-  cursor: pointer;
-  transition: 0.3s;
 }
 
-.btn-main:hover {
-  transform: scale(1.05);
-}
+.step { display:none; }
+.step.active { display:block; }
 
-/* TEXTE */
 .security {
   font-size: 12px;
   color: #aaa;
-  margin-bottom: 10px;
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
 }
 </style>
 </head>
@@ -113,148 +86,93 @@ label {
 <div id="planBadge" class="plan-badge"></div>
 
 <h2>✨ Ton voyage commence ici</h2>
+<p class="subtitle">Réponds en 30 secondes et reçois ton itinéraire personnalisé</p>
 
-<p class="subtitle">
-Réponds en 30 secondes et reçois ton itinéraire personnalisé
-</p>
-
-<!-- BARRE PROGRESSION -->
 <div style="height:6px;background:#222;border-radius:10px;margin-bottom:20px;">
-  <div id="progressBar" style="height:100%;width:33%;background:linear-gradient(90deg,#ff7a18,#ff3cac);border-radius:10px;"></div>
+  <div id="progressBar" style="height:100%;width:33%;background:linear-gradient(90deg,#ff7a18,#ff3cac);"></div>
 </div>
 
 <form id="travelForm">
 
-<input type="hidden" name="plan" id="planInput">
+<input type="hidden" id="planInput">
 
 <!-- STEP 1 -->
 <div class="step active">
 
-<input type="text" name="name" placeholder="Ton nom" required>
-<input type="email" name="email" placeholder="Ton email" required>
+<input type="text" placeholder="Ton nom" required>
+<input type="email" placeholder="Ton email" required>
 
-<label>🌍 Destination</label>
-
-<select name="destination" required>
-
-<option value="">Choisis une destination</option>
+<select required>
+<option value="">🌍 Destination</option>
+<option>🎯 Surprise-moi</option>
 
 <optgroup label="🏝️ Paradis">
-<option>Bali</option>
-<option>Maldives</option>
-<option>Seychelles</option>
-<option>Île Maurice</option>
-<option>Zanzibar</option>
-<option>Bahamas</option>
-<option>Hawaï</option>
+<option>Bali</option><option>Maldives</option><option>Seychelles</option>
+<option>Île Maurice</option><option>Zanzibar</option><option>Bahamas</option>
+<option>Hawaï</option><option>Fidji</option><option>Polynésie Française</option>
 </optgroup>
 
 <optgroup label="🏙️ Villes & luxe">
-<option>Dubaï</option>
-<option>Paris</option>
-<option>New York</option>
-<option>Tokyo</option>
-<option>Singapour</option>
-<option>Los Angeles</option>
-<option>Monaco</option>
+<option>Dubaï</option><option>Paris</option><option>New York</option>
+<option>Tokyo</option><option>Singapour</option><option>Los Angeles</option>
+<option>Monaco</option><option>Miami</option><option>Londres</option>
+</optgroup>
+
+<optgroup label="🌎 Monde">
+<option>Mexique</option><option>Brésil</option><option>Colombie</option>
+<option>Thaïlande</option><option>Vietnam</option><option>Grèce</option>
+<option>Italie</option><option>Espagne</option><option>Portugal</option>
 </optgroup>
 
 </select>
 
-<p style="color:#ff7a18; font-size:13px;">
-🔥 Destinations tendances : Bali, Maldives, Dubaï
-</p>
-
-<button type="button" onclick="nextStep()" class="btn-main">
-Continuer →
-</button>
+<button type="button" onclick="nextStep()" class="btn-main">Continuer →</button>
 
 </div>
 
 <!-- STEP 2 -->
 <div class="step">
 
-<input type="number" name="budget" placeholder="Budget €">
-<input type="number" name="people" placeholder="Personnes">
+<input type="number" placeholder="Budget €">
+<input type="number" placeholder="Personnes">
 
-<select name="duration">
-<option>5 jours</option>
-<option>7 jours</option>
-<option>10 jours</option>
-</select>
+<select><option>Durée</option><option>5 jours</option><option>7 jours</option></select>
 
-<select name="style">
-<option>Type de voyage</option>
-<option>Chill & détente</option>
-<option>Aventure</option>
-<option>Luxe</option>
-<option>Mix</option>
-</select>
+<select><option>Type de voyage</option><option>Chill</option><option>Luxe</option></select>
 
-<select name="pace">
-<option>Rythme</option>
-<option>Relax</option>
-<option>Équilibré</option>
-<option>Intense</option>
-</select>
-
-<button type="button" onclick="nextStep()" class="btn-main">
-Continuer →
-</button>
+<button type="button" onclick="nextStep()" class="btn-main">Continuer →</button>
 
 </div>
 
 <!-- STEP 3 -->
 <div class="step" id="premiumStep">
 
-<textarea name="details" placeholder="Ton voyage idéal..."></textarea>
+<textarea placeholder="Ton voyage idéal..."></textarea>
 
-<!-- PREMIUM -->
 <div id="premiumQuestions" style="display:none;">
-
-<select name="hotel">
-<option>Type d’hébergement</option>
-<option>Économique</option>
-<option>Confort</option>
-<option>Luxe</option>
-</select>
-
-<textarea name="activities" placeholder="Activités souhaitées..."></textarea>
-
+<select><option>Hébergement</option><option>Luxe</option></select>
 </div>
 
-<!-- VIP -->
 <div id="vipQuestions" style="display:none;">
-
-<select name="food">
-<option>Restaurants & gastronomie ?</option>
-<option>Oui</option>
-<option>Non</option>
-</select>
-
-<textarea name="luxury" placeholder="Expériences exclusives (yacht, spa...)"></textarea>
-
-<textarea name="constraints" placeholder="Contraintes / préférences..."></textarea>
-
+<textarea placeholder="Expériences exclusives..."></textarea>
 </div>
 
-<p class="security">
-🔒 Données sécurisées • réponse rapide • sans engagement
-</p>
+<p class="security">🔒 Données sécurisées</p>
 
-<button type="submit" id="submitBtn" class="btn-main">
-🚀 Recevoir mon voyage
-</button>
+<button type="submit" class="btn-main">🚀 Recevoir mon voyage</button>
 
 </div>
 
 </form>
+
+<!-- IA SCREEN -->
+<div id="loadingScreen" style="display:none;text-align:center;padding:60px;">
+<h2>✨ Création de ton voyage...</h2>
+<p id="loadingText">Analyse...</p>
+<div style="width:60px;height:60px;border:4px solid #222;border-top:4px solid #ff3cac;border-radius:50%;animation:spin 1s linear infinite;margin:auto;"></div>
 </div>
 
-<style>
-.step { display:none; }
-.step.active { display:block; }
-</style>
+</div>
 
 <script>
 let step = 0;
@@ -268,53 +186,54 @@ function showStep(i){
 }
 
 function nextStep(){
-  if(step < steps.length-1){
-    step++;
-    showStep(step);
-  }
+  if(step < steps.length-1){ step++; showStep(step); }
 }
 
 showStep(0);
 
 /* PLAN */
-const params = new URLSearchParams(window.location.search);
-const plan = params.get("plan");
-
+const plan = new URLSearchParams(window.location.search).get("plan");
 const badge = document.getElementById("planBadge");
-const btn = document.getElementById("submitBtn");
-const form = document.getElementById("travelForm");
-const inputPlan = document.getElementById("planInput");
 
-if(inputPlan){
-  inputPlan.value = plan;
-}
-
-/* STYLES + LOGIQUE */
 if(plan === "basic"){
-  badge.innerText = "🟢 Offre BASIC";
-  badge.style.background = "#00ff88";
-
+  badge.innerText = "🟢 BASIC";
   document.getElementById("premiumStep").style.display = "none";
 }
-
-else if(plan === "premium"){
-  badge.innerText = "🔥 Offre PREMIUM";
-  badge.style.background = "#ff7a18";
-
+if(plan === "premium"){
+  badge.innerText = "🔥 PREMIUM";
   document.getElementById("premiumQuestions").style.display = "block";
 }
-
-else if(plan === "vip"){
-  badge.innerText = "💎 Offre VIP";
-  badge.style.background = "#ff3cac";
-
+if(plan === "vip"){
+  badge.innerText = "💎 VIP";
   document.getElementById("premiumQuestions").style.display = "block";
   document.getElementById("vipQuestions").style.display = "block";
 }
 
-else {
-  badge.innerText = "✨ Offre personnalisée";
-}
+/* IA LOADING */
+document.getElementById("travelForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  this.style.display = "none";
+  document.getElementById("loadingScreen").style.display = "block";
+
+  const stepsText = [
+    "Analyse...",
+    "Recherche...",
+    "Optimisation...",
+    "Finalisation..."
+  ];
+
+  let i = 0;
+  const text = document.getElementById("loadingText");
+
+  const interval = setInterval(()=>{
+    if(i < stepsText.length){
+      text.innerText = stepsText[i++];
+    } else {
+      clearInterval(interval);
+      setTimeout(()=> alert("🎉 Voyage prêt !"), 1000);
+    }
+  },1500);
+});
 </script>
 
 </body>
