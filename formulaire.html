@@ -9,14 +9,23 @@
 body {
   margin: 0;
   font-family: Arial;
-  background: linear-gradient(180deg,#0f172a,#1e293b);
+  background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center/cover;
   color: white;
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(10,15,30,0.75);
+  backdrop-filter: blur(6px);
+  z-index:-1;
 }
 
 .section {
   max-width: 500px;
   margin: auto;
-  padding: 50px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -71,17 +80,14 @@ input, select, textarea {
   font-size: 12px;
   color: #aaa;
 }
-
-@keyframes spin {
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
-}
 </style>
 </head>
 
 <body>
 
 <div class="section">
+
+<img src="https://via.placeholder.com/120x60?text=LOGO" style="width:120px;margin-bottom:20px;">
 
 <div id="planBadge" class="plan-badge"></div>
 
@@ -92,17 +98,17 @@ input, select, textarea {
   <div id="progressBar" style="height:100%;width:33%;background:linear-gradient(90deg,#ff7a18,#ff3cac);"></div>
 </div>
 
-<form id="travelForm">
+<form id="travelForm" action="https://formspree.io/f/xxxxabcd" method="POST">
 
-<input type="hidden" id="planInput">
+<input type="hidden" name="plan" id="planInput">
 
 <!-- STEP 1 -->
 <div class="step active">
 
-<input type="text" placeholder="Ton nom" required>
-<input type="email" placeholder="Ton email" required>
+<input type="text" name="name" placeholder="Ton nom" required>
+<input type="email" name="email" placeholder="Ton email" required>
 
-<select required>
+<select name="destination" required>
 <option value="">🌍 Destination</option>
 <option>🎯 Surprise-moi</option>
 
@@ -110,18 +116,21 @@ input, select, textarea {
 <option>Bali</option><option>Maldives</option><option>Seychelles</option>
 <option>Île Maurice</option><option>Zanzibar</option><option>Bahamas</option>
 <option>Hawaï</option><option>Fidji</option><option>Polynésie Française</option>
+<option>Bora Bora</option><option>Cap Vert</option>
 </optgroup>
 
 <optgroup label="🏙️ Villes & luxe">
 <option>Dubaï</option><option>Paris</option><option>New York</option>
 <option>Tokyo</option><option>Singapour</option><option>Los Angeles</option>
 <option>Monaco</option><option>Miami</option><option>Londres</option>
+<option>Doha</option><option>Hong Kong</option>
 </optgroup>
 
 <optgroup label="🌎 Monde">
 <option>Mexique</option><option>Brésil</option><option>Colombie</option>
 <option>Thaïlande</option><option>Vietnam</option><option>Grèce</option>
 <option>Italie</option><option>Espagne</option><option>Portugal</option>
+<option>Canada</option><option>Australie</option><option>Japon</option>
 </optgroup>
 
 </select>
@@ -133,29 +142,41 @@ input, select, textarea {
 <!-- STEP 2 -->
 <div class="step">
 
-<input type="number" placeholder="Budget €">
-<input type="number" placeholder="Personnes">
+<input type="number" name="budget" placeholder="Budget €">
+<input type="number" name="people" placeholder="Personnes">
 
-<select><option>Durée</option><option>5 jours</option><option>7 jours</option></select>
+<select name="duration">
+<option>Durée</option>
+<option>3 jours</option>
+<option>5 jours</option>
+<option>7 jours</option>
+<option>10 jours</option>
+<option>2 semaines</option>
+<option>3 semaines</option>
+<option>1 mois</option>
+</select>
 
-<select><option>Type de voyage</option><option>Chill</option><option>Luxe</option></select>
+<select name="style">
+<option>Type de voyage</option>
+<option>Chill & détente</option>
+<option>Aventure</option>
+<option>Luxe</option>
+<option>Road trip</option>
+<option>Backpack</option>
+<option>Romantique</option>
+<option>Famille</option>
+<option>Solo</option>
+<option>Mix</option>
+</select>
 
 <button type="button" onclick="nextStep()" class="btn-main">Continuer →</button>
 
 </div>
 
 <!-- STEP 3 -->
-<div class="step" id="premiumStep">
+<div class="step">
 
-<textarea placeholder="Ton voyage idéal..."></textarea>
-
-<div id="premiumQuestions" style="display:none;">
-<select><option>Hébergement</option><option>Luxe</option></select>
-</div>
-
-<div id="vipQuestions" style="display:none;">
-<textarea placeholder="Expériences exclusives..."></textarea>
-</div>
+<textarea name="details" placeholder="Ton voyage idéal..."></textarea>
 
 <p class="security">🔒 Données sécurisées</p>
 
@@ -165,11 +186,9 @@ input, select, textarea {
 
 </form>
 
-<!-- IA SCREEN -->
 <div id="loadingScreen" style="display:none;text-align:center;padding:60px;">
 <h2>✨ Création de ton voyage...</h2>
 <p id="loadingText">Analyse...</p>
-<div style="width:60px;height:60px;border:4px solid #222;border-top:4px solid #ff3cac;border-radius:50%;animation:spin 1s linear infinite;margin:auto;"></div>
 </div>
 
 </div>
@@ -191,48 +210,10 @@ function nextStep(){
 
 showStep(0);
 
-/* PLAN */
-const plan = new URLSearchParams(window.location.search).get("plan");
-const badge = document.getElementById("planBadge");
-
-if(plan === "basic"){
-  badge.innerText = "🟢 BASIC";
-  document.getElementById("premiumStep").style.display = "none";
-}
-if(plan === "premium"){
-  badge.innerText = "🔥 PREMIUM";
-  document.getElementById("premiumQuestions").style.display = "block";
-}
-if(plan === "vip"){
-  badge.innerText = "💎 VIP";
-  document.getElementById("premiumQuestions").style.display = "block";
-  document.getElementById("vipQuestions").style.display = "block";
-}
-
-/* IA LOADING */
-document.getElementById("travelForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  this.style.display = "none";
+/* IA + ENVOI */
+document.getElementById("travelForm").addEventListener("submit", function(){
+  document.querySelector("form").style.display = "none";
   document.getElementById("loadingScreen").style.display = "block";
-
-  const stepsText = [
-    "Analyse...",
-    "Recherche...",
-    "Optimisation...",
-    "Finalisation..."
-  ];
-
-  let i = 0;
-  const text = document.getElementById("loadingText");
-
-  const interval = setInterval(()=>{
-    if(i < stepsText.length){
-      text.innerText = stepsText[i++];
-    } else {
-      clearInterval(interval);
-      setTimeout(()=> alert("🎉 Voyage prêt !"), 1000);
-    }
-  },1500);
 });
 </script>
 
