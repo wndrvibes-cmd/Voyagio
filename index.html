@@ -486,29 +486,32 @@ Ton voyage personnalisé en quelques minutes, adapté à ton budget et tes envie
 </footer>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-let selectedPlan = "PREMIUM";
+  let selectedPlan = "PREMIUM";
 
-function selectPlan(plan, el){
-  selectedPlan = plan;
+  window.selectPlan = function(plan, el){
+    selectedPlan = plan;
 
-  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-}
-
-document.getElementById("payBtn").addEventListener("click", function () {
-
-  if (selectedPlan === "BASIC") {
-    window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
+    document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
   }
 
-  if (selectedPlan === "PREMIUM") {
-    window.location.href = "https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06";
-  }
+  document.getElementById("payBtn").addEventListener("click", function () {
 
-  if (selectedPlan === "VIP") {
-    window.location.href = "https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07";
-  }
+    if (selectedPlan === "BASIC") {
+      window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
+    }
+
+    if (selectedPlan === "PREMIUM") {
+      window.location.href = "https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06";
+    }
+
+    if (selectedPlan === "VIP") {
+      window.location.href = "https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07";
+    }
+
+  });
 
 });
 </script>
