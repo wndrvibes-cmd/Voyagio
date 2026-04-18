@@ -205,9 +205,22 @@ function showStep(i){
 }
 
 function nextStep(){
-  if(step < steps.length-1){ step++; showStep(step); }
-}
 
+  const currentStep = steps[step];
+  const inputs = currentStep.querySelectorAll("input, select, textarea");
+
+  for(let input of inputs){
+    if(!input.checkValidity()){
+      input.reportValidity();
+      return;
+    }
+  }
+
+  if(step < steps.length - 1){
+    step++;
+    showStep(step);
+  }
+}
 showStep(0);
 
 /* PLAN (IMPORTANT 🔥) */
