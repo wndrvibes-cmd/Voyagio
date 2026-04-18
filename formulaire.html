@@ -23,8 +23,16 @@ body::before {
   content:"";
   position:fixed;
   inset:0;
-  background: rgba(0,0,0,0.35);
+
+  background:
+    radial-gradient(circle at center,
+      rgba(255,120,50,0.25) 0%,
+      rgba(10,15,30,0.5) 40%,
+      rgba(10,15,30,0.7) 100%
+    );
+
   z-index:-1;
+}
 }
 
 /* CONTAINER */
