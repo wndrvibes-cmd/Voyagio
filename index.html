@@ -16,13 +16,14 @@
 * {
 box-sizing: border-box;
 }
+
 /* GLOBAL */
 body {
 margin: 0;
 font-family: 'Poppins', sans-serif;
 
 background:
-linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)),
+linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.7)),
 url("https://images.pexels.com/photos/9394269/pexels-photo-9394269.jpeg");
 
 background-size: cover;
@@ -31,6 +32,7 @@ background-attachment: fixed;
 
 color: white;
 }
+
 p { color: #ccc; }
 
 /* HERO */
@@ -43,12 +45,14 @@ justify-content: center;
 background: transparent;
 margin-bottom: -80px;
 }
+
 .hero-content {
 max-width: 90%;
 margin: auto;
 padding: 20px;
 text-align: center;
 }
+
 .logo {
 width: 260px;
 margin-bottom: 20px;
@@ -56,22 +60,22 @@ margin-bottom: 20px;
 
 /* BUTTON */
 .btn-main {
-  display: block;
-  width: 100%;
-  max-width: 350px;
-  margin: 30px auto;
+display: block;
+width: 100%;
+max-width: 350px;
+margin: 30px auto;
 
-  padding: 16px 30px;
-  border-radius: 50px;
-  background: linear-gradient(135deg,#ff7a18,#ff3cac);
-  border: none;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 20px rgba(255,122,24,0.4);
-  animation: pulse 2s infinite ease-in-out;
+padding: 16px 30px;
+border-radius: 50px;
+background: linear-gradient(135deg,#ff7a18,#ff3cac);
+border: none;
+color: white;
+font-weight: bold;
+font-size: 16px;
+cursor: pointer;
+transition: 0.3s;
+box-shadow: 0 0 20px rgba(255,122,24,0.4);
+animation: pulse 2s infinite ease-in-out;
 }
 
 .btn-main:hover {
@@ -89,6 +93,7 @@ padding: 60px 20px;
 max-width: 500px;
 margin: auto;
 }
+
 /* DESTINATIONS */
 .grid {
 display: grid;
@@ -116,12 +121,13 @@ display: block;
 .pricing,
 .grid,
 form {
-background: rgba(0,0,0,0.5);
-backdrop-filter: blur(10px);
+background: rgba(0,0,0,0.55);
+backdrop-filter: blur(12px);
 padding: 20px;
 border-radius: 25px;
 }
-  .pricing {
+
+.pricing {
 display: flex;
 flex-direction: column;
 gap: 20px;
@@ -136,10 +142,6 @@ border-radius: 20px;
 cursor: pointer;
 border: 1px solid #222;
 transition: 0.3s;
-}
-
-/* AJOUT 👇 */
-.card {
 position: relative;
 overflow: hidden;
 }
@@ -149,7 +151,7 @@ position: absolute;
 top: 0;
 left: 0;
 width: 100%;
-height: 140px; /* IMPORTANT */
+height: 140px;
 object-fit: cover;
 opacity: 0.4;
 border-radius: 15px;
@@ -159,7 +161,8 @@ z-index: 0;
 .card * {
 position: relative;
 z-index: 2;
-} 
+}
+
 .card::after {
 content: "";
 position: absolute;
@@ -170,6 +173,7 @@ height: 140px;
 background: linear-gradient(to bottom, rgba(0,0,0,0.2), #111);
 z-index: 1;
 }
+
 .card:hover {
 transform: translateY(-8px) scale(1.02);
 }
@@ -183,10 +187,7 @@ box-shadow: 0 0 20px rgba(255,122,24,0.4);
 color: #ff7a18;
 font-size: 20px;
 font-weight: bold;
-} 
-
-
-/* PRICING BOOST */
+}
 
 .card ul {
 text-align: left;
@@ -199,48 +200,107 @@ color: #ccc;
 margin-bottom: 6px;
 }
 
-/* PREMIUM (populaire) */
+/* PREMIUM */
 .popular {
-position: relative;
 border: 2px solid #ff7a18;
-box-shadow: 
-  0 0 15px #ff7a18,
-  0 0 30px #ff7a18,
-  0 0 60px rgba(255,122,24,0.8);
+box-shadow: 0 0 40px rgba(255,122,24,0.6);
 }
 
 .badge {
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg,#ff7a18,#ff3cac);
-  padding: 8px 20px; /* + gros */
-  border-radius: 25px;
-  font-size: 14px; /* + gros */
-  font-weight: bold;
-  box-shadow: 0 0 15px rgba(255,122,24,0.6);
+position: absolute;
+top: -15px;
+left: 50%;
+transform: translateX(-50%);
+background: linear-gradient(135deg,#ff7a18,#ff3cac);
+padding: 8px 20px;
+border-radius: 25px;
+font-size: 14px;
+font-weight: bold;
+box-shadow: 0 0 15px rgba(255,122,24,0.6);
 }
 
 /* VIP */
 .vip {
 background: linear-gradient(180deg,#111,#0a0a0a);
 border: 2px solid #ff3cac;
-box-shadow: 
-  0 0 15px #ff3cac,
-  0 0 30px #ff3cac,
-  0 0 60px rgba(255,60,172,0.8);
-} 
-.card.basic.active {
-  border: 2px solid #00ff88;
-  box-shadow: 
-    0 0 15px #00ff88,
-    0 0 30px #00ff88,
-    0 0 60px rgba(0,255,136,0.8);
+box-shadow: 0 0 40px rgba(255,60,172,0.5);
 }
+
 .vip span {
 color: #ff3cac;
 }
+
+/* BASIC */
+.card.basic {
+border: 2px solid #00ff88;
+box-shadow: none;
+}
+
+.card.basic.active {
+box-shadow:
+0 0 20px #00ff88,
+0 0 40px #00ff88,
+0 0 80px rgba(0,255,136,0.9);
+}
+
+/* WHY SECTION UPGRADE */
+.why-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 15px;
+margin-top: 20px;
+}
+
+.why-card {
+background: rgba(0,0,0,0.7);
+padding: 20px;
+border-radius: 20px;
+
+border: 1px solid rgba(255,255,255,0.08);
+
+box-shadow:
+0 0 10px rgba(255,122,24,0.2),
+0 0 20px rgba(255,122,24,0.15);
+
+backdrop-filter: blur(12px);
+transition: 0.3s;
+}
+
+.why-card:hover {
+transform: translateY(-8px) scale(1.02);
+
+box-shadow:
+0 0 20px rgba(255,122,24,0.5),
+0 0 40px rgba(255,122,24,0.3);
+}
+
+/* COMPARE */
+.compare {
+display: flex;
+flex-direction: column;
+gap: 20px;
+margin-top: 20px;
+}
+
+.compare-box {
+padding: 20px;
+border-radius: 20px;
+background: rgba(0,0,0,0.7);
+backdrop-filter: blur(10px);
+}
+
+.compare-box.bad {
+border: 1px solid rgba(255,0,0,0.4);
+box-shadow: 0 0 15px rgba(255,0,0,0.2);
+}
+
+.compare-box.good {
+border: 1px solid rgba(0,255,136,0.5);
+box-shadow:
+0 0 20px rgba(0,255,136,0.4),
+0 0 40px rgba(0,255,136,0.2);
+}
+
 /* FORM */
 form {
 display: flex;
@@ -264,100 +324,13 @@ padding: 30px;
 color: #777;
 }
 
-/* AJOUT ICI 👇 */
-
-/* PREMIUM 🔥 */
-.popular {
-border: 2px solid #ff7a18;
-box-shadow: 0 0 40px rgba(255,122,24,0.6);
-}
-
-/* VIP 💎 */
-.vip {
-border: 2px solid #ff3cac;
-box-shadow: 0 0 40px rgba(255,60,172,0.5);
-}
-
 /* ANIMATION */
 @keyframes pulse {
 0% { transform: scale(1); }
 50% { transform: scale(1.05); }
 100% { transform: scale(1); }
-} 
-/* BASIC normal (contour vert simple) */
-.card.basic {
-  border: 2px solid #00ff88;
-  box-shadow: none; /* ← IMPORTANT */
 }
 
-/* BASIC actif (GROS NEON) */
-.card.basic.active {
-  border: 2px solid #00ff88;
-  box-shadow:
-    0 0 20px #00ff88,
-    0 0 40px #00ff88,
-    0 0 80px rgba(0,255,136,0.9);
-}
-
-/* PREMIUM actif (ORANGE NEON) */
-.card.popular.active {
-  border: 2px solid #ff7a18;
-  box-shadow:
-    0 0 20px #ff7a18,
-    0 0 40px #ff7a18,
-    0 0 80px rgba(255,122,24,0.9);
-}
-
-/* VIP actif (ROSE NEON) */
-.card.vip.active {
-  border: 2px solid #ff3cac;
-  box-shadow:
-    0 0 20px #ff3cac,
-    0 0 40px #ff3cac,
-    0 0 80px rgba(255,60,172,0.9);
-} 
-.why-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 15px;
-margin-top: 20px;
-}
-
-.why-card {
-background: rgba(0,0,0,0.6);
-padding: 20px;
-border-radius: 20px;
-border: 1px solid rgba(255,255,255,0.05);
-box-shadow: 0 0 20px rgba(255,122,24,0.15);
-transition: 0.3s;
-}
-
-.why-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 0 30px rgba(255,122,24,0.4);
-}
-
-.compare {
-display: flex;
-flex-direction: column;
-gap: 20px;
-margin-top: 20px;
-}
-
-.compare-box {
-padding: 20px;
-border-radius: 20px;
-background: rgba(0,0,0,0.6);
-}
-
-.compare-box.bad {
-border: 1px solid rgba(255,0,0,0.3);
-}
-
-.compare-box.good {
-border: 1px solid rgba(0,255,136,0.4);
-box-shadow: 0 0 20px rgba(0,255,136,0.3);
-}
 </style>
 </head>
 
