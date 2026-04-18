@@ -198,12 +198,14 @@ let step = 0;
 const steps = document.querySelectorAll(".step");
 const progress = document.getElementById("progressBar");
 
+/* ---------- AFFICHAGE STEP ---------- */
 function showStep(i){
   steps.forEach(s => s.classList.remove("active"));
   steps[i].classList.add("active");
   progress.style.width = ((i+1)/steps.length)*100 + "%";
 }
 
+/* ---------- NEXT STEP + VALIDATION ---------- */
 function nextStep(){
 
   const currentStep = steps[step];
@@ -222,9 +224,10 @@ function nextStep(){
   }
 }
 
+/* INIT */
 showStep(0);
 
-/* PLAN */
+/* ---------- PLAN AUTO ---------- */
 const params = new URLSearchParams(window.location.search);
 const selectedPlan = params.get("plan") || "PREMIUM";
 
@@ -247,10 +250,23 @@ if(selectedPlan === "VIP"){
   badge.style.background = "#ff3cac";
 }
 
-/* SUBMIT */
-document.getElementById("travelForm").addEventListener("submit", function(){
-  document.querySelector("form").style.display = "none";
+/* ---------- ENVOI ZAPIER (SANS REDIRECTION) ---------- */
+document.getElementById("travelForm").addEventListener("submit", function(e){
+
+  e.preventDefault(); // 🚨 empêche la page JSON
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch(form.action, {
+    method: "POST",
+    body: data
+  });
+
+  // UI loading
+  form.style.display = "none";
   document.getElementById("loadingScreen").style.display = "block";
+
 });
 </script>
 
