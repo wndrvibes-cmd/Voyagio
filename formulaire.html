@@ -1,23 +1,100 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Créer ton voyage</title>
-</head>
+<div id="formSection" style="display:none;">
 
-<body style="background:#111;color:white;font-family:sans-serif;">
+  <div class="section">
+<h2>Créer ton voyage ✈️</h2>
 
-<h2>✈️ Créer ton voyage</h2>
+<form id="travelForm">
 
-<form>
-  <input placeholder="Ton nom"><br><br>
-  <input placeholder="Ton email"><br><br>
+<input type="text" name="name" placeholder="Ton nom" required>
+<input type="email" name="email" placeholder="Ton email" required>
 
-  <input placeholder="Destination"><br><br>
-  <input placeholder="Budget"><br><br>
+<label>🌍 Destination</label>
 
-  <button>Envoyer 🚀</button>
+<select name="destination" required>
+
+<option value="">Choisis une destination</option>
+
+<optgroup label="🏝️ Paradis">
+<option>Bali</option>
+<option>Maldives</option>
+<option>Seychelles</option>
+<option>Île Maurice</option>
+<option>Zanzibar</option>
+<option>Bahamas</option>
+<option>Hawaï</option>
+</optgroup>
+
+<optgroup label="🏙️ Villes & luxe">
+<option>Dubaï</option>
+<option>Paris</option>
+<option>New York</option>
+<option>Tokyo</option>
+<option>Singapour</option>
+<option>Los Angeles</option>
+<option>Monaco</option>
+</optgroup>
+
+<optgroup label="🏜️ Aventure">
+<option>Maroc</option>
+<option>Jordanie (Petra)</option>
+<option>Égypte</option>
+<option>Namibie</option>
+</optgroup>
+
+<optgroup label="🏔️ Nature">
+<option>Suisse</option>
+<option>Canada</option>
+<option>Islande</option>
+<option>Norvège</option>
+<option>Népal</option>
+</optgroup>
+
+<optgroup label="🌴 Asie">
+<option>Thaïlande</option>
+<option>Vietnam</option>
+<option>Indonésie</option>
+<option>Philippines</option>
+<option>Sri Lanka</option>
+</optgroup>
+
+<optgroup label="🏛️ Europe">
+<option>Grèce</option>
+<option>Italie</option>
+<option>Espagne</option>
+<option>Portugal</option>
+<option>Croatie</option>
+<option>Turquie</option>
+</optgroup>
+
+<optgroup label="🌎 Amérique">
+<option>Mexique</option>
+<option>Brésil</option>
+<option>Pérou</option>
+<option>Colombie</option>
+<option>Californie</option>
+</optgroup>
+
+</select>
+
+<p style="color:#ff7a18; font-size:13px;">
+🔥 Les destinations tendances : Bali, Maldives, Dubaï
+</p>
+  
+
+<input type="number" name="budget" placeholder="Budget €">
+<input type="number" name="people" placeholder="Personnes">
+
+<select name="duration">
+<option>5 jours</option>
+<option>7 jours</option>
+<option>10 jours</option>
+</select>
+
+<textarea name="details" placeholder="Ton voyage idéal..."></textarea>
+
+<button type="submit" class="btn-main">Envoyer 🚀</button>
+
 </form>
-
-</body>
-</html>
+</div>
+</div>
