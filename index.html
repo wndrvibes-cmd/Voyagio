@@ -351,6 +351,52 @@ color: #ccc;
 
 .result-box li {
 margin-bottom: 8px;
+} 
+/* ===== FIX FINAL NEON (NE PAS TOUCHER) ===== */
+
+/* Désactive les anciens styles parasites */
+.card.active {
+  border: none;
+  box-shadow: none;
+}
+
+/* BASIC */
+.card.basic {
+  border: 2px solid #00ff88;
+}
+
+.card.basic.active {
+  border: 2px solid #00ff88;
+  box-shadow:
+    0 0 20px #00ff88,
+    0 0 40px #00ff88,
+    0 0 80px rgba(0,255,136,0.9);
+}
+
+/* PREMIUM */
+.card.popular {
+  border: 2px solid #ff7a18;
+}
+
+.card.popular.active {
+  border: 2px solid #ff7a18;
+  box-shadow:
+    0 0 20px #ff7a18,
+    0 0 40px #ff7a18,
+    0 0 80px rgba(255,122,24,0.9);
+}
+
+/* VIP */
+.card.vip {
+  border: 2px solid #ff3cac;
+}
+
+.card.vip.active {
+  border: 2px solid #ff3cac;
+  box-shadow:
+    0 0 20px #ff3cac,
+    0 0 40px #ff3cac,
+    0 0 80px rgba(255,60,172,0.9);
 }
 </style>
 </head>
