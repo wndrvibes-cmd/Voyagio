@@ -13,44 +13,113 @@ body {
   color: white;
 }
 
+/* SECTION */
 .section {
   max-width: 500px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 50px 20px;
+  text-align: center;
 }
 
-form {
-  background: rgba(0,0,0,0.8);
-  padding: 25px;
+/* TITRE */
+h2 {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.subtitle {
+  color: #aaa;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  background: linear-gradient(90deg,#ff7a18,#ff3cac);
+  padding: 6px 14px;
   border-radius: 20px;
-  box-shadow: 0 0 40px rgba(255,60,172,0.2);
+  font-size: 12px;
+  margin-bottom: 15px;
 }
 
+/* FORM */
+form {
+  background: rgba(0,0,0,0.75);
+  padding: 25px;
+  border-radius: 25px;
+
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255,255,255,0.05);
+
+  box-shadow:
+    0 0 20px rgba(255,60,172,0.15),
+    0 0 60px rgba(0,0,0,0.8);
+}
+
+/* INPUTS */
 input, select, textarea {
   width: 100%;
-  padding: 14px;
+  padding: 16px;
   margin-bottom: 15px;
-  border-radius: 10px;
-  border: none;
-  background: #111;
+
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.05);
+
+  background: rgba(255,255,255,0.03);
   color: white;
+
+  font-size: 14px;
+
+  transition: 0.3s;
 }
 
+/* FOCUS (effet wow) */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border: 1px solid #ff3cac;
+  box-shadow: 0 0 15px rgba(255,60,172,0.4);
+}
+
+/* LABEL */
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  margin-top: 10px;
+  color: #ddd;
+}
+
+/* BUTTON */
 .btn-main {
   width: 100%;
-  padding: 16px;
+  padding: 18px;
   border-radius: 50px;
   border: none;
   font-weight: bold;
   font-size: 16px;
   color: white;
   cursor: pointer;
+
   background: linear-gradient(135deg,#ff7a18,#ff3cac);
-  box-shadow: 0 0 20px rgba(255,60,172,0.5);
+
+  box-shadow:
+    0 0 20px rgba(255,122,24,0.6),
+    0 0 40px rgba(255,60,172,0.4);
+
+  transition: 0.3s;
 }
 
-h2 {
-  text-align: center;
+.btn-main:hover {
+  transform: scale(1.05);
+}
+
+/* TEXTE SÉCURITÉ */
+.security {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 10px;
 }
 </style>
 </head>
@@ -60,7 +129,14 @@ h2 {
 <div id="formSection">
 
 <div class="section">
-<h2>Créer ton voyage ✈️</h2>
+
+<div class="badge">🔥 Accès client premium</div>
+
+<h2>✨ Ton voyage commence ici</h2>
+
+<p class="subtitle">
+Réponds en 30 secondes et reçois ton itinéraire sur-mesure
+</p>
 
 <form id="travelForm">
 
@@ -150,7 +226,11 @@ h2 {
 
 <textarea name="details" placeholder="Ton voyage idéal..."></textarea>
 
-<button type="submit" class="btn-main">Envoyer 🚀</button>
+<p class="security">
+🔒 Données sécurisées • réponse sous 24h • sans engagement
+</p>
+
+<button type="submit" class="btn-main">🚀 Recevoir mon voyage</button>
 
 </form>
 </div>
