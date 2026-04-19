@@ -240,7 +240,18 @@ input:focus, select:focus, textarea:focus {
 
 </form> <!-- ✅ AJOUT IMPORTANT -->
 
-<div id="loadingScreen" style="display:none;text-align:center;padding:60px;">
+<div id="loadingScreen" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background: rgba(0,0,0,0.8);
+text-align:center;
+padding-top:120px;
+z-index:999;
+">
 <h2>✨ Création de ton voyage...</h2>
 <p id="loadingText">Analyse...</p>
 </div>
@@ -252,7 +263,9 @@ input:focus, select:focus, textarea:focus {
   <div class="footer-content">
     <p>© 2026 Voyagio — Tous droits réservés</p>
     <p>Contact : hello.voyagio@gmail.com</p>
-  </div>
+ </div>
+
+</div>
 </footer>
 
 <script>
