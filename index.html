@@ -24,9 +24,7 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
 
-  background:
-  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
-  url("https://images.pexels.com/photos/3601425/pexels-photo-3601425.jpeg");
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 
   background-size: cover;
   background-position: center top; /* FIX ZOOM */
@@ -38,7 +36,14 @@ body {
   color: white;
   overflow-x: hidden;
 }
+html {
+  width: 100%;
+}
 
+body, .section, .hero, .grid, .pricing {
+  width: 100%;
+  max-width: 100%;
+}
 /* TEXTE FIX */
 p {
   color: rgba(255,255,255,0.9);
