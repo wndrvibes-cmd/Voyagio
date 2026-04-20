@@ -10,7 +10,6 @@
 <meta name="keywords" content="voyage personnalisé, itinéraire voyage, vacances, Bali, Maldives, voyage luxe">
 <meta name="author" content="Voyagio">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -28,14 +27,14 @@ body {
 
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  /* FIX MOBILE */
+  background-attachment: scroll;
 
   color: white;
-
-  overflow-x: hidden; /* FIX BUG */
+  overflow-x: hidden;
 }
-
-p { color: #ccc; }
 
 /* HERO */
 .hero {
@@ -351,19 +350,21 @@ form {
 </style>
 <!-- HERO -->
 <div class="hero">
-<div class="hero-content">
+  <div class="hero-content">
 
-<img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg" class="logo">
+    <img src="https://www.image2url.com/r2/default/images/1776393053480-0cba0804-7b75-41ab-ae09-cc32e5ea10dc.png" class="logo">
 
-<h1>Ton voyage créé par IA en 2 minutes ✈️</h1>
-<p>Itinéraire personnalisé + hôtels + activités selon ton budget</p>
-<p>💰 Jusqu’à 70% moins cher</p>
-<p>⭐ 4.9/5 • +200 voyageurs • 🔒 Paiement sécurisé</p>
+    <h1>Ton voyage créé par IA en 2 minutes ✈️</h1>
 
-<a href="#pricing">
-<button class="btn-main">Créer mon voyage 🚀</button>
-</a>
-</div>
+    <p>Itinéraire personnalisé + hôtels + activités selon ton budget</p>
+
+    <p>💰 Jusqu’à 70% moins cher</p>
+
+    <p>⭐ 4.9/5 • +200 voyageurs • 🔒 Paiement sécurisé</p>
+
+    <button class="btn-main">Créer mon voyage 🚀</button>
+
+  </div>
 </div>
 
 <!-- DESTINATIONS -->
