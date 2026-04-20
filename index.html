@@ -104,7 +104,31 @@ box-shadow:
 inset 0 0 40px rgba(0,0,0,0.6),
 0 0 40px rgba(0,0,0,0.4);
 }
+.bottom-highlight {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 20px;
 
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+
+  text-align: center;
+
+  box-shadow:
+    0 0 20px rgba(255,122,24,0.15),
+    inset 0 0 20px rgba(0,0,0,0.4);
+}
+
+.bottom-highlight p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.bottom-highlight .strong {
+  color: #ff7a18;
+  font-weight: 600;
+}
 .card-img {
 border-radius: 20px;
 padding: 15px;
@@ -381,15 +405,21 @@ Voyagio crée pour toi un voyage personnalisé avec hôtels, activités et expé
 
 </div>
 
-<p class="more-destinations">
-🌍 +50 destinations disponibles : Maldives, Los Angeles, Maroc, Dubaï, Japon…
-</p>
+<div class="bottom-highlight">
 
-<p class="highlight">
-✨ Hôtels sélectionnés • Activités personnalisées • Itinéraire complet
-<br><br>
-👉 Voyage 100% adapté à ton budget, ton style et tes envies
-</p>
+  <p class="more-destinations">
+    🌍 +50 destinations disponibles : Maldives, Los Angeles, Maroc, Dubaï, Japon...
+  </p>
+
+  <p>
+    ✨ Hôtels sélectionnés • Activités personnalisées • Itinéraire complet  
+  </p>
+
+  <p class="strong">
+    👉 Voyage 100% adapté à ton budget, ton style et tes envies
+  </p>
+
+</div>
 
 </div>
 <!-- POURQUOI VOYAGIO PREMIUM -->
