@@ -199,7 +199,74 @@ h1, h2, h3 {
   padding-left: 18px;
   font-size: 13px;
 }
+/* ===== CARD PRICING ===== */
+.card {
+  background: rgba(0,0,0,0.7);
+  padding: 25px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
 
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE */
+.card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+/* CONTENU */
+.card * {
+  position: relative;
+  z-index: 2;
+}
+
+/* PRIX */
+.card span {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* LISTE */
+.card ul {
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+/* HOVER */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* LAYOUT */
+.pricing {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+  .pricing {
+    flex-direction: row;
+  }
+
+  .card {
+    flex: 1;
+  }
+}
 /* GRID FIX */
 .why-grid {
   display: grid;
