@@ -252,7 +252,41 @@ h1, h2, h3 {
   transform: translateY(-6px);
   box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
+/* PREMIUM + GROSSE */
+.card.popular {
+  transform: scale(1.05);
+  border: 2px solid #ff7a18;
+  box-shadow: 0 0 25px rgba(255,122,24,0.4);
+}
 
+/* SUR MOBILE on réduit un peu */
+@media (max-width: 768px) {
+  .card.popular {
+    transform: scale(1.02);
+  }
+} 
+/* RESET */
+.card {
+  cursor: pointer;
+}
+
+/* ACTIF */
+.card.active {
+  transform: scale(1.05);
+}
+
+/* COULEURS PAR PLAN */
+.card.basic.active {
+  box-shadow: 0 0 20px #00ff88, 0 0 40px rgba(0,255,136,0.6);
+}
+
+.card.popular.active {
+  box-shadow: 0 0 25px #ff7a18, 0 0 60px rgba(255,122,24,0.7);
+}
+
+.card.vip.active {
+  box-shadow: 0 0 25px #ff3cac, 0 0 60px rgba(255,60,172,0.7);
+}
 /* LAYOUT */
 .pricing {
   display: flex;
@@ -567,66 +601,72 @@ Voyagio crée pour toi un voyage personnalisé avec hôtels, activités et expé
 </div>
   <h2>Choisis ton expérience ✨</h2>
 
-  <p style="color:#aaa; max-width:400px; margin:auto;">
-    Ton voyage personnalisé en quelques minutes, adapté à ton budget et tes envies.
-  </p>
+<p style="color:#aaa; max-width:400px; margin:auto;">
+  Ton voyage personnalisé en quelques minutes, adapté à ton budget et tes envies.
+</p>
 
-  <div class="pricing">
+<div class="pricing">
 
-    <!-- BASIC -->
-    <div class="card basic" onclick="selectPlan('BASIC', this)">
-      <img src="https://images.pexels.com/photos/9394269/pexels-photo-9394269.jpeg" class="card-bg">
-      
-      <h3>BASIC</h3>
-      <p class="subtitle">Idée rapide pour démarrer</p>
-      <span>9€</span>
+  <!-- BASIC -->
+  <div class="card basic" onclick="selectPlan('BASIC', this)">
+    <img src="https://images.pexels.com/photos/9394269/pexels-photo-9394269.jpeg" class="card-bg">
+    
+    <h3>BASIC</h3>
+    <p class="subtitle">Idée rapide pour démarrer</p>
 
-      <ul>
-        <li>✔️ Destination recommandée</li>
-        <li>✔️ Budget estimé</li>
-        <li>✔️ 2-3 activités</li>
-      </ul>
-    </div>
+    <span>9€</span>
 
-    <!-- PREMIUM -->
-    <div class="card active popular" onclick="selectPlan('PREMIUM', this)">
-      <img src="https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg" class="card-bg">
-      
-      <div class="popular-badge">🔥 POPULAIRE</div>
-
-      <h3>PREMIUM 🔥</h3>
-      <p class="subtitle">Le choix idéal pour un voyage complet</p>
-      <p class="value">🔥 Le plus choisi par les voyageurs</p>
-      <span>19€</span>
-
-      <ul>
-        <li>✔️ Itinéraire jour par jour</li>
-        <li>✔️ Hôtels recommandés</li>
-        <li>✔️ Activités détaillées</li>
-        <li>✔️ Budget précis</li>
-      </ul>
-    </div>
-
-    <!-- VIP -->
-    <div class="card vip" onclick="selectPlan('VIP', this)">
-      <img src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg" class="card-bg">
-      
-      <h3>VIP 💎</h3>
-      <p class="subtitle">Expérience haut de gamme</p>
-      <p class="value">💎 Expérience complète & exclusive</p>
-      <span>29€</span>
-
-      <ul>
-        <li>✔️ Planning détaillé</li>
-        <li>✔️ Adresses exactes</li>
-        <li>✔️ Restaurants & spots cachés</li>
-        <li>✔️ Conseils exclusifs</li>
-        <li>✔️ PDF premium</li>
-      </ul>
-    </div>
-
+    <ul>
+      <li>✔️ Destination recommandée</li>
+      <li>✔️ Budget estimé</li>
+      <li>✔️ 2-3 activités</li>
+    </ul>
   </div>
 
+  <!-- PREMIUM -->
+  <div class="card popular active" onclick="selectPlan('PREMIUM', this)">
+    <img src="https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg" class="card-bg">
+
+    <h3>🔥 PREMIUM</h3>
+    <p class="subtitle">Le choix idéal pour un voyage complet</p>
+
+    <span>19€</span>
+
+    <ul>
+      <li>✔️ Itinéraire jour par jour</li>
+      <li>✔️ Hôtels recommandés</li>
+      <li>✔️ Activités détaillées</li>
+      <li>✔️ Budget précis</li>
+    </ul>
+
+    <p class="value" style="color:#ff7a18; font-size:12px;">
+      🔥 Le plus choisi par les voyageurs
+    </p>
+  </div>
+
+  <!-- VIP -->
+  <div class="card vip" onclick="selectPlan('VIP', this)">
+    <img src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg" class="card-bg">
+
+    <h3>💎 VIP</h3>
+    <p class="subtitle">Expérience haut de gamme</p>
+
+    <span>29€</span>
+
+    <ul>
+      <li>✔️ Planning détaillé</li>
+      <li>✔️ Adresses exactes</li>
+      <li>✔️ Restaurants & spots cachés</li>
+      <li>✔️ Conseils exclusifs</li>
+      <li>✔️ PDF premium</li>
+    </ul>
+
+    <p class="value" style="color:#3ccaff; font-size:12px;">
+      💎 Expérience complète & exclusive
+    </p>
+  </div>
+
+</div>
   <button id="payBtn" class="btn-main">
     🔥 Je veux mon voyage parfait
   </button>
@@ -778,7 +818,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+function selectPlan(plan, element) {
 
+  // enlever active de toutes les cards
+
+  document.querySelectorAll('.card').forEach(card => {
+
+    card.classList.remove('active');
+
+  });
+
+  // ajouter active à celle cliquée
+
+  element.classList.add('active');
+
+  // (optionnel) tu peux stocker le plan choisi ici
+
+  console.log("Plan choisi :", plan);
+
+}
 </script>
 </body>
 </html>
