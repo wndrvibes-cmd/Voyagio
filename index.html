@@ -199,41 +199,43 @@ h1, h2, h3 {
   padding-left: 18px;
   font-size: 13px;
 }
-/* ===== CARD PRICING ===== */
+/* ===== CARD PRICING CLEAN ===== */
 .card {
-  background: rgba(0,0,0,0.7);
-  padding: 25px;
+  background: rgba(15,20,30,0.95);
+  padding: 20px;
   border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
   transition: 0.3s;
 
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
-/* IMAGE */
+/* IMAGE PROPRE */
 .card-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 120px;
   object-fit: cover;
-  opacity: 0.25;
-  z-index: 0;
+  border-radius: 12px;
 }
 
-/* CONTENU */
-.card * {
-  position: relative;
-  z-index: 2;
+/* TITRE */
+.card h3 {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+/* TEXTE */
+.card p {
+  font-size: 13px;
+  color: #bbb;
+  margin: 0;
 }
 
 /* PRIX */
 .card span {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: bold;
   margin: 10px 0;
 }
@@ -241,12 +243,14 @@ h1, h2, h3 {
 /* LISTE */
 .card ul {
   padding-left: 18px;
-  font-size: 14px;
+  font-size: 13px;
+  color: #ccc;
 }
 
 /* HOVER */
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
 /* LAYOUT */
