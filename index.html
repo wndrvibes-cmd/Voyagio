@@ -230,6 +230,81 @@ h1, h2, h3 {
 .footer-box p {
   margin: 6px 0;
   font-size: 14px;
+} 
+/* WHY CARDS FIX */
+.why-card {
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  text-align: left;
+  transition: 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+}
+
+/* COMPARE FIX */
+.compare {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.compare-box {
+  background: rgba(0,0,0,0.6);
+  padding: 25px;
+  border-radius: 20px;
+}
+
+.compare-box.bad {
+  border: 1px solid rgba(255,0,0,0.4);
+}
+
+.compare-box.good {
+  border: 1px solid rgba(0,255,150,0.4);
+}
+
+/* RESULT BOX FIX */
+.result-box {
+  background: rgba(0,0,0,0.6);
+  padding: 25px;
+  border-radius: 20px;
+}
+
+/* PRICING MOBILE FIX */
+.pricing {
+  width: 100%;
+}
+
+/* RESPONSIVE FIX (TRÈS IMPORTANT) */
+@media (max-width: 768px) {
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 50px 20px;
+  }
+
+  h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .compare-box ul,
+  .result-box ul {
+    padding-left: 18px;
+    text-align: left;
+  }
+
 }
 </style>
 <!-- HERO -->
