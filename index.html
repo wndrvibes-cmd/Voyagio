@@ -354,6 +354,31 @@ line-height: 1.6;
   display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 15px;
+  .footer {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-box {
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(15px);
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  max-width: 350px;
+  width: 100%;
+
+  box-shadow:
+    0 0 20px rgba(255,122,24,0.15),
+    inset 0 0 20px rgba(0,0,0,0.4);
+}
+
+.footer-box p {
+  margin: 6px 0;
+  color: #ccc;
+  font-size: 14px;
+}
 </style>
 </head>
 
@@ -717,12 +742,10 @@ Voyagio crée pour toi un voyage personnalisé avec hôtels, activités et expé
 </div>
 
 <footer class="footer">
-  <div class="footer-content">
+  <div class="footer-box">
     <p>© 2026 Voyagio — Tous droits réservés</p>
     <p>Contact : hello.voyagio@gmail.com</p>
- </div>
-
-</div>
+  </div>
 </footer>
 <script>
 
