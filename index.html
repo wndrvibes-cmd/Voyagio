@@ -207,7 +207,7 @@ h1, h2, h3 {
 /* ===== CARD PRICING CLEAN ===== */
 .card {
   background: linear-gradient(180deg, #0b1623 0%, #060d16 100%);
-  padding: 30px 25px;
+  padding: 30px 25px 35px;
   border-radius: 25px;
   position: relative;
   overflow: hidden;
@@ -227,13 +227,10 @@ h1, h2, h3 {
 
 /* IMAGE PROPRE */
 .card-bg {
-  width: 100%;
   height: 160px;
   object-fit: cover;
-  object-position: center;
-  border-radius: 15px;
-  margin-bottom: 15px;
-} 
+  object-position: center 60%;
+}
   .card-bg {
   filter: brightness(0.85) contrast(1.1);
 }
@@ -487,16 +484,23 @@ h1, h2, h3 {
   max-width: 100%;
 } 
   .value {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 14px;
   font-weight: 600;
   color: #ff7a18;
   text-align: center;
 
-  background: rgba(255,122,24,0.1);
-  padding: 8px 12px;
-  border-radius: 12px;
-} 
+  background: linear-gradient(
+    135deg,
+    rgba(255,122,24,0.15),
+    rgba(255,60,172,0.1)
+  );
+
+  padding: 10px;
+  border-radius: 15px;
+
+  box-shadow: 0 0 15px rgba(255,122,24,0.2);
+}
   .basic-value {
   margin-top: 10px;
   font-size: 13px;
