@@ -30,16 +30,21 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
 
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+  background: radial-gradient(
+      circle at 20% 10%,
+      rgba(255,122,24,0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(0,200,255,0.15),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #0b1623, #0a1a2b, #08131f);
 
   color: white;
+  overflow-x: hidden;
 }
-
 /* SECTION */
 .section {
   width: 100%;
@@ -48,7 +53,10 @@ body {
   padding: 60px 20px;
   box-shadow: 0 0 80px rgba(255,122,24,0.05);
 }
-
+.section img {
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
 /* TITRE PRINCIPAL */
 .section h2 {
   font-size: 28px;
@@ -154,6 +162,7 @@ h1, h2, h3 {
 
   box-shadow: 0 20px 50px rgba(0,0,0,0.7);
   transition: 0.4s;
+  justify-content: space-between;
 }
 
 .card:hover {
@@ -232,6 +241,7 @@ h1, h2, h3 {
   padding-left: 18px;
   font-size: 15px;
   line-height: 1.6;
+  margin-bottom: 5px;
 }
 
 .card ul li {
@@ -243,7 +253,7 @@ h1, h2, h3 {
   margin-top: 10px;
   padding: 14px;
   border-radius: 15px;
-
+margin-bottom: 0;
   text-align: center;
   font-weight: 600;
 
@@ -288,7 +298,21 @@ h1, h2, h3 {
 
   box-shadow: 0 0 20px rgba(255,122,24,0.5);
 }
+.btn-secondary {
+  margin: 25px auto;
+  display: block;
 
+  padding: 14px 20px;
+  border-radius: 30px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+
+  color: white;
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+}
 /* ===== TRUST ===== */
 .trust-line {
   text-align: center;
@@ -403,6 +427,12 @@ h1, h2, h3 {
     text-align: center;
   }
 
+} 
+  .vip-note {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  margin-top: 5px;
 }
 </style>
 <!-- HERO -->
@@ -499,7 +529,9 @@ Voyagio crée pour toi un voyage personnalisé avec hôtels, activités et expé
   <p class="strong">
     👉 Voyage 100% adapté à ton budget, ton style et tes envies
   </p>
-
+<button class="btn-secondary">
+✨ Voir mon voyage personnalisé
+</button>
 </div>
 
 </div>
@@ -614,7 +646,7 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ Budget estimé clair</li>
       <li>✔️ 2 à 3 activités recommandées</li>
     </ul>
-
+<button class="card-cta">Choisir</button>
     <div class="value">
       ✨ Idéal pour découvrir sans prise de tête
     </div>
@@ -636,7 +668,7 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ Activités détaillées</li>
       <li>✔️ Budget optimisé</li>
     </ul>
-
+<button class="card-cta">Choisir</button>
     <div class="value">
       🔥 Le choix préféré — simple, complet, efficace
     </div>
@@ -660,8 +692,12 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
     </ul>
 
     <div class="value">
-      💎 Expérience complète, luxe & optimisée
-    </div>
+💎 Le plan le plus complet pour un voyage parfait, sans aucune perte de temps
+</div>
+
+<p class="vip-note">
+Accès à une expérience unique avec recommandations exclusives, adresses cachées et optimisation totale de ton séjour.
+</p>
   </div>
 
 </div>
