@@ -567,7 +567,7 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
 <div class="pricing">
 
   <!-- BASIC -->
-  <div class="card basic" onclick="selectPlan('BASIC', this)">
+  <div class="card basic">
     <img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg">
     <div class="mini-badge">⚡ RAPIDE</div>
 
@@ -582,17 +582,19 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ 2 à 3 activités</li>
     </ul>
 
-    <div class="card basic" data-plan="BASIC">
-👉 Choisir
-</button>
+    <button class="btn-premium"
+    onclick="window.location.href='https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05'">
+      🔥 Payer 9€
+    </button>
 
     <div class="value">
       ✨ Idéal pour découvrir rapidement
     </div>
   </div>
 
+
   <!-- PREMIUM -->
-  <div class="card popular active" onclick="selectPlan('PREMIUM', this)">
+  <div class="card popular">
     <img src="https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg">
     <div class="badge-pop">🔥 POPULAIRE</div>
 
@@ -608,17 +610,19 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ Budget optimisé</li>
     </ul>
 
-    <div class="card popular" data-plan="PREMIUM">
-👉 Choisir
-</button>
+    <button class="btn-premium"
+    onclick="window.location.href='https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06'">
+      🔥 Payer 19€
+    </button>
 
     <div class="value">
       🔥 Le plus choisi — complet & efficace
     </div>
   </div>
 
+
   <!-- VIP -->
-  <div class="card vip" onclick="selectPlan('VIP', this)">
+  <div class="card vip">
     <img src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg">
 
     <h3>💎 VIP</h3>
@@ -633,9 +637,12 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ Conseils personnalisés</li>
       <li>✔️ PDF premium</li>
     </ul>
-<div class="card vip" data-plan="VIP">
-👉 Choisir
-</button>
+
+    <button class="btn-premium"
+    onclick="window.location.href='https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07'">
+      🔥 Payer 29€
+    </button>
+
     <div class="value">
       💎 L’expérience ultime pour un voyage parfait
     </div>
@@ -648,14 +655,8 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
 
 </div>
 
-<button class="btn-main">
-🔥 Je veux mon voyage parfait
-</button>
-
 <div class="trust-line">
 ✔ Accès immédiat • 🔒 Paiement sécurisé • ❌ Aucun abonnement
-</div>
-
 </div>
   
 <footer class="footer">
