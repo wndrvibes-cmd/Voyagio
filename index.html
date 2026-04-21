@@ -40,9 +40,11 @@ html {
   width: 100%;
 }
 
-body, .section, .hero, .grid, .pricing {
+.section {
   width: 100%;
-  max-width: 100%;
+  max-width: 1100px; /* PLUS LARGE = plus premium */
+  margin: auto;
+  padding: 60px 20px;
 }
 /* TEXTE FIX */
 p {
@@ -204,15 +206,23 @@ h1, h2, h3 {
 }
 /* ===== CARD PRICING CLEAN ===== */
 .card {
-  background: rgba(15,20,30,0.95);
-  padding: 20px;
-  border-radius: 20px;
+  background: linear-gradient(180deg, #0b1623 0%, #060d16 100%);
+  padding: 30px 25px;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+
   border: 1px solid rgba(255,255,255,0.06);
-  transition: 0.3s;
 
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+
+  box-shadow: 
+    0 15px 40px rgba(0,0,0,0.7),
+    inset 0 0 30px rgba(255,255,255,0.02);
+
+  transition: 0.4s;
 }
 
 /* IMAGE PROPRE */
@@ -225,8 +235,8 @@ h1, h2, h3 {
 
 /* TITRE */
 .card h3 {
-  font-size: 18px;
-  margin: 5px 0;
+  font-size: 20px;
+  margin: 0;
 }
 
 /* TEXTE */
@@ -238,8 +248,9 @@ h1, h2, h3 {
 
 /* PRIX */
 .card span {
-  font-size: 26px;
-  font-weight: bold;
+  font-size: 38px;
+  font-weight: 700;
+  color: #ff7a18;
   margin: 10px 0;
 }
 
@@ -257,9 +268,10 @@ h1, h2, h3 {
 }
 /* PREMIUM + GROSSE */
 .card.popular {
-  transform: scale(1.05);
-  border: 2px solid #ff7a18;
-  box-shadow: 0 0 25px rgba(255,122,24,0.4);
+  border: 1px solid #ff7a18;
+  box-shadow: 
+    0 0 30px rgba(255,122,24,0.5),
+    0 20px 60px rgba(0,0,0,0.9);
 }
 
 /* SUR MOBILE on réduit un peu */
@@ -293,15 +305,17 @@ h1, h2, h3 {
 .card::before {
   content: "";
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,122,24,0.15), transparent 60%);
-  opacity: 0;
-  transition: 0.5s;
-}
+  inset: 0;
+  border-radius: 25px;
 
+  background: radial-gradient(
+    circle at top left,
+    rgba(255,122,24,0.15),
+    transparent 60%
+  );
+
+  z-index: 1;
+}
 .card:hover::before {
   opacity: 1;
 } 
@@ -405,7 +419,10 @@ h1, h2, h3 {
 .pricing {
   width: 100%;
 }
-
+.pricing {
+  margin-top: 40px;
+  padding: 0 10px;
+}
 /* RESPONSIVE FIX (TRÈS IMPORTANT) */
 @media (max-width: 768px) {
 
