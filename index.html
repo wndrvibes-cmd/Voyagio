@@ -607,7 +607,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let selectedPlan = "PREMIUM";
 
-  // sélection des cartes
+  // 👉 sélection des cartes
   document.querySelectorAll(".card").forEach(card => {
     card.addEventListener("click", () => {
 
@@ -620,8 +620,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // bouton paiement
-  document.getElementById("payBtn").addEventListener("click", function () {
+  // 👉 scroll vers pricing
+  document.getElementById("scrollToPricing")?.addEventListener("click", () => {
+    document.getElementById("pricing").scrollIntoView({ behavior: "smooth" });
+  });
+
+  document.getElementById("scrollToPricing2")?.addEventListener("click", () => {
+    document.getElementById("pricing").scrollIntoView({ behavior: "smooth" });
+  });
+
+  // 👉 bouton paiement
+  document.getElementById("payBtn")?.addEventListener("click", function () {
 
     if (selectedPlan === "BASIC") {
       window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
