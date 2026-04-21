@@ -567,7 +567,7 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ 2 à 3 activités</li>
     </ul>
 
-    <button class="card-cta" onclick="selectPlan('BASIC', this.closest('.card'))">
+    <div class="card basic" data-plan="BASIC">
 👉 Choisir
 </button>
 
@@ -593,7 +593,7 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ Budget optimisé</li>
     </ul>
 
-    <button class="card-cta" onclick="selectPlan('BASIC', this.closest('.card'))">
+    <div class="card popular" data-plan="PREMIUM">
 👉 Choisir
 </button>
 
@@ -618,7 +618,7 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ Conseils personnalisés</li>
       <li>✔️ PDF premium</li>
     </ul>
-<button class="card-cta" onclick="selectPlan('BASIC', this.closest('.card'))">
+<div class="card vip" data-plan="VIP">
 👉 Choisir
 </button>
     <div class="value">
@@ -648,47 +648,40 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
     <p>© 2026 Voyagio — Tous droits réservés</p>
     <p>Contact : hello.voyagio@gmail.com</p>
   </div>
-</footer>
-<script>
-
+</footer><script>
 document.addEventListener("DOMContentLoaded", function () {
 
   let selectedPlan = "PREMIUM";
 
-  // Sélection carte
-  window.selectPlan = function(plan, el) {
-    selectedPlan = plan;
+  // sélection des cartes
+  document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => {
 
-    document.querySelectorAll('.card').forEach(card => {
-      card.classList.remove('active');
+      document.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+
+      selectedPlan = card.getAttribute("data-plan");
+
+      console.log("Plan :", selectedPlan);
     });
+  });
 
-    el.classList.add('active');
+  // bouton paiement
+  document.getElementById("payBtn").addEventListener("click", function () {
 
-    console.log("Plan choisi :", plan);
-  };
+    if (selectedPlan === "BASIC") {
+      window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
+    }
 
-  // Bouton paiement
-  const payBtn = document.getElementById("payBtn");
+    if (selectedPlan === "PREMIUM") {
+      window.location.href = "https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06";
+    }
 
-  if(payBtn){
-    payBtn.addEventListener("click", function () {
+    if (selectedPlan === "VIP") {
+      window.location.href = "https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07";
+    }
 
-      if (selectedPlan === "BASIC") {
-        window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
-      }
-
-      if (selectedPlan === "PREMIUM") {
-        window.location.href = "https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06";
-      }
-
-      if (selectedPlan === "VIP") {
-        window.location.href = "https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07";
-      }
-
-    });
-  }
+  });
 
 });
-
 </script>
