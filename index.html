@@ -261,12 +261,15 @@ h1, h2, h3 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.card span {
+  text-shadow: 0 0 20px rgba(255,122,24,0.4);
+}
 /* LISTE */
 .card ul {
   padding-left: 18px;
   font-size: 13px;
-  color: rgba(255,255,255,0.85);
+   color: rgba(255,255,255,0.95);
+  font-size: 15px;
 }
 
 /* HOVER */
@@ -493,6 +496,35 @@ h1, h2, h3 {
   background: rgba(255,122,24,0.1);
   padding: 8px 12px;
   border-radius: 12px;
+} 
+  .basic-value {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #4fd1ff;
+
+  background: rgba(79,209,255,0.1);
+  padding: 8px 12px;
+  border-radius: 12px;
+  text-align: center;
+} 
+  .badge-pop {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  background: linear-gradient(135deg,#ff7a18,#ff3cac);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+
+  padding: 6px 10px;
+  border-radius: 20px;
+
+  box-shadow: 0 0 10px rgba(255,122,24,0.5);
+} 
+  h3 {
+  font-size: 22px;
+  font-weight: 700;
 }
 </style>
 <!-- HERO -->
@@ -703,13 +735,16 @@ Voyagio crée pour toi un voyage personnalisé avec hôtels, activités et expé
       <li>✔️ Destination recommandée</li>
       <li>✔️ Budget estimé</li>
       <li>✔️ 2-3 activités</li>
-    </ul>
+    </ul> 
+    <p class="value basic-value">
+✨ Idéal pour découvrir ton prochain voyage
+</p>
   </div>
 
   <!-- PREMIUM -->
   <div class="card popular active" onclick="selectPlan('PREMIUM', this)">
     <img src="https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg" class="card-bg">
-
+<div class="badge-pop">🔥 POPULAIRE</div>
     <h3>🔥 PREMIUM</h3>
     <p class="subtitle">Le choix idéal pour un voyage complet</p>
 
