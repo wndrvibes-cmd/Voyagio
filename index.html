@@ -249,6 +249,95 @@ body {
   .pricing {
     flex-direction: row;
   }
+} 
+/* ===== STRUCTURE VISUELLE ===== */
+.info-box {
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.mini-line {
+  margin-top: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+}
+
+.strong {
+  font-weight: 600;
+  color: white;
+}
+
+/* CTA milieu */
+.mid-cta {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ===== WHY GRID ===== */
+.why-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.why-card {
+  background: rgba(255,255,255,0.03);
+  padding: 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== COMPARE ===== */
+.compare {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.compare-box {
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.compare-box.bad {
+  background: rgba(255,50,50,0.05);
+  border: 1px solid rgba(255,50,50,0.2);
+}
+
+.compare-box.good {
+  background: rgba(0,255,150,0.05);
+  border: 1px solid rgba(0,255,150,0.2);
+}
+
+/* ===== RESULT BOX ===== */
+.result-box {
+  background: rgba(255,255,255,0.03);
+  padding: 25px;
+  border-radius: 20px;
+  margin-top: 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ===== CARD CTA FIX ===== */
+.card-cta {
+  margin-top: 15px;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: rgba(255,255,255,0.08);
+  color: #4fd1ff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== ESPACEMENT GLOBAL ===== */
+.section {
+  margin-bottom: 40px;
 }
 </style>
 <!-- HERO -->
@@ -478,9 +567,9 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ 2 à 3 activités</li>
     </ul>
 
-    <button class="card-cta" onclick="event.stopPropagation(); selectPlan('BASIC', this.closest('.card'))">
-      👉 Choisir
-    </button>
+    <button class="card-cta" onclick="selectPlan('BASIC', this.closest('.card'))">
+👉 Choisir
+</button>
 
     <div class="value">
       ✨ Idéal pour découvrir rapidement
@@ -504,9 +593,9 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ Budget optimisé</li>
     </ul>
 
-    <button class="card-cta" onclick="event.stopPropagation(); selectPlan('PREMIUM', this.closest('.card'))">
-      👉 Choisir
-    </button>
+    <button class="card-cta" onclick="selectPlan('BASIC', this.closest('.card'))">
+👉 Choisir
+</button>
 
     <div class="value">
       🔥 Le plus choisi — complet & efficace
@@ -529,7 +618,9 @@ Ton voyage personnalisé en quelques minutes. Simple, rapide et adapté à ton b
       <li>✔️ Conseils personnalisés</li>
       <li>✔️ PDF premium</li>
     </ul>
-
+<button class="card-cta" onclick="selectPlan('BASIC', this.closest('.card'))">
+👉 Choisir
+</button>
     <div class="value">
       💎 L’expérience ultime pour un voyage parfait
     </div>
@@ -564,8 +655,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let selectedPlan = "PREMIUM";
 
+  // Sélection carte
   window.selectPlan = function(plan, el) {
-
     selectedPlan = plan;
 
     document.querySelectorAll('.card').forEach(card => {
@@ -573,44 +664,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     el.classList.add('active');
+
+    console.log("Plan choisi :", plan);
+  };
+
+  // Bouton paiement
+  const payBtn = document.getElementById("payBtn");
+
+  if(payBtn){
+    payBtn.addEventListener("click", function () {
+
+      if (selectedPlan === "BASIC") {
+        window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
+      }
+
+      if (selectedPlan === "PREMIUM") {
+        window.location.href = "https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06";
+      }
+
+      if (selectedPlan === "VIP") {
+        window.location.href = "https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07";
+      }
+
+    });
   }
 
-  document.getElementById("payBtn").addEventListener("click", function () {
-
-    if (selectedPlan === "BASIC") {
-      window.location.href = "https://buy.stripe.com/bJe00icyMglpfTwdLZ9bO05";
-    }
-
-    if (selectedPlan === "PREMIUM") {
-      window.location.href = "https://buy.stripe.com/6oU00ibuI1qv0YC9vJ9bO06";
-    }
-
-    if (selectedPlan === "VIP") {
-      window.location.href = "https://buy.stripe.com/dRm9ASbuI2uz8r423h9bO07";
-    }
-
-  });
-
 });
-function selectPlan(plan, element) {
 
-  // enlever active de toutes les cards
-
-  document.querySelectorAll('.card').forEach(card => {
-
-    card.classList.remove('active');
-
-  });
-
-  // ajouter active à celle cliquée
-
-  element.classList.add('active');
-
-  // (optionnel) tu peux stocker le plan choisi ici
-
-  console.log("Plan choisi :", plan);
-
-}
 </script>
-</body>
-</html>
