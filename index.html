@@ -333,7 +333,88 @@ h1, h2, h3 {
 .card.vip.active {
   box-shadow: 0 0 35px #00d4ff, 0 0 80px rgba(0,200,255,0.6);
 }
+/* ===== TEXTE PLUS IMPACT ===== */
+.card p {
+  color: rgba(255,255,255,0.95);
+  font-size: 15px;
+}
 
+.card .subtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ===== PRIX EN MODE "WOW" ===== */
+.card span {
+  font-size: 44px;
+  font-weight: 900;
+
+  background: linear-gradient(135deg,#ff7a18,#ff3cac);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 0 10px rgba(255,122,24,0.4),
+    0 0 25px rgba(255,60,172,0.3);
+}
+
+/* ===== TITRE PLUS FORT ===== */
+.card h3 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* ===== VALUE BOX (PHRASE BAS) ===== */
+.value {
+  margin-top: 10px;
+  padding: 14px;
+  border-radius: 15px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-align: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255,122,24,0.2),
+    rgba(255,60,172,0.2)
+  );
+
+  border: 1px solid rgba(255,122,24,0.4);
+
+  box-shadow: 0 0 20px rgba(255,122,24,0.2);
+}
+
+/* ===== BADGE POPULAIRE CLEAN ===== */
+.popular-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  padding: 6px 14px;
+  border-radius: 50px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  background: linear-gradient(135deg,#ff7a18,#ff3cac);
+  color: white;
+
+  box-shadow: 0 0 15px rgba(255,122,24,0.6);
+}
+
+/* ===== IMAGE FIX PRO ===== */
+.card-bg {
+  height: 180px;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 15px;
+
+  filter: brightness(0.95) contrast(1.15) saturate(1.1);
+}
 /* MOBILE */
 @media (max-width: 768px) {
   .card.popular {
